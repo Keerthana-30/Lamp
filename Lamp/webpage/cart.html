@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cart</title>
+		<style>
+			/*
+			.cart{ 
+				border:2px solid black;
+				background: rgba(0, 0, 0, 0.2);
+				display:inline-block;
+				margin:10px;
+				width:90%px;
+				border-radius:10px;
+				text-align:center;
+			}*/
+			
+			@import url('https://fonts.googleapis.com/css?family=Roboto');
+			
+			body{
+			  margin:0;
+			}
+			h2 {
+			  font-family: "Sofia", sans-serif;
+			  font-size:30px;
+			}
+			.navbar {
+			  background: rgba(0, 0, 0, 0.5);
+			  overflow: hidden;
+			  position: fixed;
+			  top:0;
+			  width: 100%;
+			}
+			.navbar a {
+			  float: right;
+			  display: block;
+			  color: #f2f2f2;
+			  text-align: center;
+			  padding: 15px 15px;
+			  text-decoration: none;
+			  font-size: 17px;
+			  margin:5px;
+			}
+			.navbar a:hover{
+			  opacity:0.5;
+			}
+			.logo{
+			  float:left;
+		    }
+			.main {
+			  border:2px solid black;
+			  max-width: 90%;
+			  margin:auto;
+			  text-align:center;
+			  margin-top:100px;
+			}
+			/*.row{
+				border:5px solid black;
+				margin:10px;
+				display:grid;
+			}
+			.table{
+				text-align:center;
+				border:1px solid black;
+				padding:10px;
+			
+			}
+			th{
+				border:1px solid black;
+				padding:10px;
+				font-size:20px;
+			}
+			.table tr,.table tr td{
+				vertical-align: middle;
+				border:1px solid black;
+				padding:10px;
+				max-width:500px;
+			}
+			
+			.img-prdct{
+				width: 50px;
+				height: 50px;
+			/* 	background-color: #5161ce; */
+				border-radius: 4px;
+			}
+			.img-prdct img{
+			  width: 100%;
+			}
+			.button-container{
+				display: flex;
+				align-items: center;
+			}
+			.button-container .form-control{
+				max-width: 80px;
+				text-align: center;
+				display: inline-block;
+				margin: 0px 5px;
+			}
+			.cart-qty-plus,.cart-qty-minus{
+				width: 38px;
+				height: 38px;
+				background-color: #fff;
+				border: 1px solid #ced4da;
+				border-radius: .25rem;
+			}
+			.cart-qty-plus:hover,.cart-qty-minus:hover{
+				background-color: #5161ce;
+				color: #fff;
+			}*/
+
+
+/*
+input:focus,button:focus,
+.form-control:focus{
+	outline: none;
+	box-shadow: none;
+}
+.form-control:disabled, .form-control[readonly]{
+	background-color: #fff;
+}
+			
+#myTable .form-control{
+	width: auto;
+	display: inline-block;
+}*/
+
+			section-header {
+				font-family: "Metal Mania";
+				font-weight: normal;
+				color: #333;
+				text-align: center;
+				font-size: 2.5em;
+			}
+			.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
+		</style>
+		
+		<!--script>
+			function up(max){
+				document.getElementById("mynumber").value=parseInt(document.getElementById("mynumber").value)+1;
+				if(document.getElementById("mynumber").value>=parseInt(max)){
+					document.getElementById("mynumber").value=max;
+				}
+			}
+			
+			function down(min){
+				document.getElementById("mynumber").value=parseInt(document.getElementById("mynumber").value)-1;
+				if(document.getElementById("mynumber").value<=parseInt(min)){
+					document.getElementById("mynumber").value=min;
+				}
+			}
+		</script-->
+</head>
+<body>
+		<!--div class="main">
+			<h1>Cart</h1>
+			<div class="cart">
+				<div class="cart-container">
+					
+				</div>
+			</div>
+		</div-->
+		<div class="navbar">
+			<div class="logo">
+				<a href="#"><img src="">cduy</a>
+			</div>
+			 <a href="loginsignup.html" class="">LOGOUT</a>
+			
+		   <a href="menu.html" class="">MENU</a>
+		   <a href="#about" class="">ABOUT</a>
+		   <a href="#contact" class="">CONTACT</a>
+		   <a href="#header" class="">HOME</a>
+	   </div>
+	   
+	   <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+			
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+		<!--div class="main">
+			<h2 class="heading">Shopping Cart</h2>
+			<div class="row">
+				<div class="col">
+					<div class="table-responsive">
+						<table id="myTable" class="table">
+							<thead>
+								<tr>
+									<th>Product</th>
+									<th>Name</th>
+									<th>Qty</th>
+									<th>Price</th>
+									<th class="text-right"><span id="amount" class="amount">Total</span> </th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="product-img">
+											<div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+										</div>
+									</td>
+									<td>
+										<p>Product cudychduchduicmjmijdoiddcodicdoimcuyhOne</p>
+									</td>
+									<td>
+										<div class="button-container">
+											<button class="cart-qty-plus" type="button" value="+" onclick="up('10')">+</button>
+											<input type="text" name="qty" min="0" class="qty form-control" value="0" id="mynumber"/>
+											<button class="cart-qty-minus" type="button" value="-" onclick="down('0')">-</button>
+											<button id="down" class="quantity-button" onclick="down('0')"><class="glyphicon glyphicon-minus"></span></button>
+										</div>
+									</td>
+									<td>
+										<input type="text" value="72" class="price form-control" disabled>
+									</td>
+									<td align="right">$ <span id="amount" class="amount">0</span></td>
+								</tr>
+								<tr>
+									<td>
+										<div class="product-img">
+											<div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+										</div>
+									</td>
+									<td>
+										<p>Product Two</p>
+									</td>
+									<td>
+										<div class="button-container">
+											<button class="cart-qty-plus" type="button" value="+" onclick="up('10')">+</button>
+											<input type="text" name="qty" min="0" class="qty form-control" value="0" id="mynumber"/>
+											<button class="cart-qty-minus" type="button" value="-" onclick="down('0')">-</button>
+											<button id="down" class="quantity-button" onclick="down('0')"><class="glyphicon glyphicon-minus"></span></button>
+										</div>
+									</td>
+									<td>
+										<input type="text" value="125" class="price form-control" disabled>
+									</td>
+									<td align="right">$ <span id="amount" class="amount">0</span></td>
+								</tr>
+								<tr>
+									<td>
+										<div class="product-img">
+											<div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+										</div>
+									</td>
+									<td>
+										<p>Product Three</p>
+									</td>
+									<td>
+										<div class="button-container">
+											<button class="cart-qty-plus" type="button" value="+" onclick="up('10')">+</button>
+											<input type="text" name="qty" min="0" class="qty form-control" value="0" id="mynumber"/>
+											<button class="cart-qty-minus" type="button" value="-" onclick="down('0')">-</button>
+											<button id="down" class="quantity-button" onclick="down('0')"><class="glyphicon glyphicon-minus"></span></button>
+										</div>
+									</td>
+									<td>
+										<input type="text" value="250" class="price form-control" disabled>
+									</td>
+									<td align="right">$ <span id="amount" class="amount">0</span></td>
+								</tr>
+								<tr>
+									<td>
+										<div class="product-img">
+											<div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+										</div>
+									</td>
+									<td>
+										<p>Product Four</p>
+									</td>
+									<td>
+										<div class="button-container">
+											<button class="cart-qty-plus" type="button" value="+" onclick="up('10')">+</button>
+											<input type="text" name="qty" min="0" class="qty form-control" value="0" id="mynumber"/>
+											<button class="cart-qty-minus" type="button" value="-" onclick="down('0')">-</button>
+											<button id="down" class="quantity-button" onclick="down('0')"><class="glyphicon glyphicon-minus"></span></button>
+										</div>
+									</td>
+									<td>
+										<input type="text" value="300" class="price form-control" disabled>
+									</td>
+									<td align="right">$ <span id="amount" class="amount">0</span></td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="4"></td><td align="right"><strong>TOTAL = $  <span id="total" class="total">0</span></strong></td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+ 
+		</div-->
+		<script src="cart.js"async ></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang ='en'>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width,inital-scale=1.0'>
+    <title>implementations</title>
+    
+</head>
+<body>
+    <button type='button' onclick='forLoop()'>Function forLoop()</button>
+    <button type='button' onclick='arrowFunc()'>Function arrowFunc()</button>
+    <button type='button' onclick='say()'>function say()</button>
+    <div id='form'></div>
+    <p id='welcome'></p>
+    <div>
+        <label for="operation">Select the operation: </label>
+        <select id="operation">
+          <option value="">--Make a choice--</option>
+          <option value="push">Push</option>
+          <option value="pop">Pop</option>
+          <option value="shift">Shift</option>
+          <option value="unshift">Unshift</option>
+        </select>
+        <p id='selectPara'></p>
+    </div>
+    <button type='button' onclick='map()'>function map()</button>
+    <script>
+        'use strict';
+        let forLoop=function(choice=""){
+            let animals=[{
+                            name:'tiko',
+                            animal:'cat',
+                            living:true,
+                         },
+                         {
+                             name:'niko',
+                             animal:'dog',
+                             living:false,
+                         }
+                        ];
+           if (choice === 'push') {
+                animals.push({
+                            name:'ti',
+                            animal:'sheep',
+                            living:true,
+                         });
+			para.textContent = 'value is pushed at the last';
+		  } else if (choice === 'pop') {
+            animals.pop();
+			para.textContent = ' Last value is poped';
+		  } else if (choice === 'shift') {
+              animals.shift();
+			para.textContent = 'removed from the front';
+		  } else if (choice === 'unshift') {
+            animals.unshift({
+                            name:'flucky',
+                            animal:'rat',
+                            living:false,
+                         });
+			para.textContent = 'Added at the begining';
+		  } else {
+			para.textContent = '';
+		  }
+          
+            //normal for-loop
+            for(let looper=0;looper<animals.length;looper++){
+                console.log(animals[looper]);
+            }
+            
+            //label
+            let counter=1;
+            outer: for(let looper =0;looper<10;looper++){
+                        for(let counter =0;counter<10;counter++){
+                            console.log(looper);
+                            if(looper===5){
+                                break outer;
+                            }
+                        }
+                    }
+            //for of loop
+            for(let animal of animals ){
+                console.log(`${counter}.${animal.name}-${animal.animal}`);
+                counter++;
+            }
+            
+        };
+        
+        //arrow function
+        let arrowFunc=()=>{
+            var data=`<form><label for='name'>Name:</label><br><input type='text' id='name' name='name'><br><label for ='gender'>Gender:</label>
+                    <br><input type='radio' id='gender' name='gender' value='male'>Male <input type='radio' id='gender' name='gender' value='female'>Female <br>
+                    <textarea rows='5' cols='50'></textarea><br><input type='submit' value='Submit'></form>`
+            document.getElementById('form').innerHTML=data; //used to write the dynamic html code   
+        };
+        console.log(arrowFunc.name);
+        //function declaration
+        function say(){
+            let pet={
+             cat:true,
+             prop:['sharp teeth','fluffy','fish'],
+             'likes to':'play',
+             color:'black'
+            };
+            let animal={
+                dog:true
+            }
+            console.log(Object.keys(pet));// return the keys in the object in a array
+            console.log("this is called using pet.cat:" + pet.cat);
+            console.log("this is called using pet[cat]: " +pet['cat']);
+            console.log("this is called using pet['likes to']: "+pet['likes to']);
+            console.log("this is called using pet['color']: "+pet['color']);
+            delete pet.color;//deletes the item named color
+            console.log("color" in pet);
+            console.log("cat" in pet);
+            console.log(Object.keys(pet));
+            Object.assign(animal,pet);//copies all properties of one object to another
+            console.log(animal);
+           
+        }
+        let func=say;//copies the say function to func;
+        console.log(say.name);
+       
+        //pushpop
+        const select = document.querySelector('select');
+		const para = document.querySelector('#selectPara');
+		//console.log(select) gets the whole select tag
+		// console.log(para) gets the whole p tag 
+		  //console.log(choice) the option we choose
+        		  
+	
+		select.addEventListener('change', pushpop);
+
+		function pushpop() {
+		  const choice = select.value; //console.log(choice) the option we choose
+          forLoop(choice);		  
+		}
+        
+        //filter function
+        function filter(array, test) {
+        let passed = [];
+        for (let element of array) {
+            //console.log(element);
+            //console.log(test(element));
+            if (test(element)) {
+            passed.push(element);
+            }
+        }
+        return passed;
+        }
+
+        let scripts=[{
+                name:	"Adlam",
+                ranges:	[[125184, 125259], [125264, 125274]],
+                direction:	"rtl",
+                year:	1987,
+                living:	true,
+                },
+                {
+                    name:	"Arabic",
+                    ranges:	[[1536, 1541], [1542, 1548]],
+                    direction:	"rtl",
+                    year:	400,
+                    living:	false},
+                {
+                    name:	"Armenian",
+                    ranges:	[[1329, 1367], [1369, 1376]],
+                    direction:	"ltr",
+                    year:	405,
+                    living:	true}
+                ]
+        console.log(filter(scripts, script => script.living));
+        /*-----------------------------------------------------*/
+        
+        function value(){
+            return 'uhhumhu';
+        }
+        function add(data=value()){
+            console.log(scripts.push(data));
+            //console.log(scripts);
+        }
+        console.log(add('twenty'));
+        console.log(add());
+
+        //rest parameter
+        function sum(...list) {
+            let total=0;
+            for(let element of list)
+            {
+                total+=element;
+            }
+            return total;
+        }
+        console.log(sum(1,2,3,5,6));
+
+        //constructor
+        function User(name){
+            if(!new.target){//to check whether function is called with new keyword or not.
+                return new User(name);
+            }
+            this.name=name;
+        }
+        let john=User('John');
+        console.log(john.name);
+
+        function Big(){
+            this.name='keerthu';
+            return { name:'keke'};
+        }
+        console.log(new Big().name);//keke
+
+        function Small(){
+            this.name='keerthu';
+            return;
+        }
+        console.log(new Small().name);//keerthu
+
+        //optional chaining ?. stops the evaluation if value before ?. is undefined or null//works only for declared variable
+        let user={};
+        alert(user?.address?.street);//undefined 
+      </script>
+
+</body>
+</html>

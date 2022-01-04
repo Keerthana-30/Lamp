@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>signup form </title>
+<style>
+body{
+  margin:auto;
+  background-image:url('https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.container{
+  text-align:center;
+  width:500px;
+  border-radius:20px;
+  margin:auto;
+  padding:10px;
+  /border: 20px solid black;/
+  background: rgba(0, 0, 0, 0.5);
+ 
+}
+.navtitle{
+  /border:1px solid black;/
+  text-align:center;
+}
+.tab button {
+   float:center;
+   text-align:center;
+   border:2px solid black;
+   background:#ff0066;
+   padding:10px 5px;
+   font-size:15px;
+   border-radius:20px;
+   color:#fff;
+   transition:0.5s all ease;
+   width:25%;	
+}
+.tab button:hover {
+   background-color: #ff80b3;
+}
+.tab button.active {
+  background-color: #ccc;
+}
+.button:hover{
+  background-color: #6441a5;
+}
+.form,.form1{
+  border: 2px solid white;
+  padding: 30px 40px;
+  
+}
+.form-group,.form-group1{
+  margin-bottom: 8px;
+  padding-bottom: 15px;
+  position: relative;
+}
+.form-group label,.form-group1 label{
+  display: block;
+  margin-bottom: 5px;
+  font-weight:bold;
+  color:white;
+}
+.form-group input,.form-group1 input{
+  border: 2px solid #f0f0f0;
+  display: block;
+  border-radius: 4px;
+  font-size: .8rem;
+  width: 100%;
+  padding: 10px;
+}
+.form input::placeholder,.form1 input::placeholder{
+  color: #2a0845;
+}
+.form-group i,.form-group1 i{
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  visibility: hidden;
+}
+.form-group span,.form-group1 span{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: bolder;
+  font-size: 1rem;
+  font-style: italic;
+  visibility: hidden;
+}
+.form-group.success input,.form-group1.success input{
+  border-color: #2ecc71;
+}
+.form-group.error input,.form-group1.error input{
+  border-color: #e74c3c;
+}
+.form-group.error span,.form-group1.error span{
+  color: #e74c3c;
+  visibility: visible;
+}
+.form-group.success i.ion-ios-checkmark,.form-group1.success i.ion-ios-checkmark{
+  visibility: visible;
+  color: #2ecc71;
+}
+.form-group.error i.ion-android-alert,.form-group1.error i.ion-android-alert{
+  visibility: visible;
+  color: #e74c3c;
+}
+.form #submit,.form1 #submit-login{
+  background-color: #2a0845;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .5s;
+}
+.form #submit:hover,.form1 #submit:hover{
+  background-color: #6441a5;
+}
+@media only screen and (max-width : 500px){
+ .form,.form1{
+	width: 100%;
+}
+.form-group span,.form-group1 span{
+  font-size: xx-small;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="navtitle">
+	<div class="tab">
+	<button class="tablinks" onclick="openForm(event, 'login')" id="default">Login</button>
+        <button class="tablinks" onclick="openForm(event, 'signup')">Sign Up</button>
+	</div>	
+	</div>
+<div id="login" class="tabcontent">
+	<u style="color:white;text-align:center"><h2>Login Form</h2><hr></u>
+	<form class="form1" method="post">
+		<div class="form-group1">
+		<label for="">UserName : </label>
+		<input type="text" placeholder="Enter username" id = "username1">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<div class="form-group1">
+	<label for="">Email : </label>
+	<input type="text" placeholder="Enter email" id = "email1">
+	<i class="ion-ios-checkmark"></i>
+	<i class="ion-android-alert"></i>
+	<span></span>
+	</div>
+	<div class="form-group1">
+           <label for="">Password : </label>
+          <input type="password" placeholder="Enter password" id = "password1" >
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+		<button id = 'submit-login'>Login</button>
+		</form>
+		</div>
+<div id="signup" class="tabcontent">
+	<u style="color:white;text-align:center"><h2>Sign Up Form</h2><hr></u>
+	<form class="form" method="post">
+	<div class="form-group">
+	    <label for="">UserName : </label>
+		<input type="text" placeholder="Enter Name" id = "username">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<div class="form-group">
+		<label for="">Email : </label>
+		<input type="text" placeholder="Enter Email" id = "email">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<div class="form-group">
+		<label for="">Phone Number : </label>
+		<input type="text" placeholder="Enter phone Number" id = "phonenumber">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<div class="form-group">
+		<label for="">Password : </label>
+		<input type="password" placeholder="Enter password" id = "password">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<div class="form-group">
+		<label for="">Confirm Password : </label>
+		<input type="password" placeholder="Confirm password" id = "confirmpassword">
+		<i class="ion-ios-checkmark"></i>
+		<i class="ion-android-alert"></i>
+		<span></span>
+		</div>
+	<button id ='submit' >Submit</button>
+	</form>
+     </div>
+    </div>
+
+    <script>
+	function openForm(event, formName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		 }
+		tablinks = document.getElementsByClassName("tablinks");
+	        for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		   document.getElementById(formName).style.display = "block";
+		   event.currentTarget.className += " active";
+		}
+	       document.getElementById("default").click();
+</script>
+  <script>
+    class loginFormValidation{
+    loginformValues = {
+        username1 : "",
+        email1 : "",
+        password1 : "",
+    }
+    loginerrorValues = {
+        usernameErr1 : "",
+        emailErr1 : "",
+        passwordErr1 : "",
+    }
+    showErrorMsg(index,msg){
+        const form_group1 = document.getElementsByClassName('form-group1')[index]
+        form_group1.classList.add('error')
+        form_group1.getElementsByTagName('span')[0].textContent = msg   
+    }
+    showSuccessMsg(index){
+        const form_group1 = document.getElementsByClassName('form-group1')[index]
+        form_group1.classList.remove('error')
+        form_group1.classList.add('success')
+    }
+    logingetInputs(){
+        this.loginformValues .username1 = document.getElementById('username1').value.trim()
+        this.loginformValues .email1 = document.getElementById('email1').value.trim() 
+        this.loginformValues .password1 = document.getElementById('password1').value.trim()
+     }
+    validateUsername(){
+	const regExpName=/^[a-zA-Z0-9]+$/
+        if(this.loginformValues.username1 === ""){
+            this.loginerrorValues.usernameErr1 = "* Please Enter Your Name"
+            this.showErrorMsg(0,this.loginerrorValues.usernameErr1)
+        } else if(this.loginformValues.username1.length <= 4 ){
+            this.loginerrorValues.usernameErr1 = "* Username must be atleast 5 Characters"
+            this.showErrorMsg(0,this.loginerrorValues.usernameErr1)
+        } else if(this.loginformValues.username1.length > 14){
+            this.loginerrorValues.usernameErr1 = "* Username should not exceeds 14 Characters"
+            this.showErrorMsg(0,this.loginerrorValues.usernameErr1)
+        } else if(!(regExpName.test(this.loginformValues.username1))){
+            this.loginerrorValues.usernameErr1 = "* special characters are not allowed"
+            this.showErrorMsg(0,this.loginerrorValues.usernameErr1)
+        }
+		else {
+            this.loginerrorValues.usernameErr1 = ""
+            this.showSuccessMsg(0)
+        }
+    }
+    validateEmail(){
+        //abc@gmail.co.in
+        const regExp = /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
+        if(this.loginformValues.email1 === ""){
+            this.loginerrorValues.emailErr1 = "* Please Enter Valid Email"
+            this.showErrorMsg(1,this.loginerrorValues.emailErr1)
+        } else if(!(regExp.test(this.loginformValues.email1))){
+            this.loginerrorValues.emailErr1 = "* Invalid Email"
+            this.showErrorMsg(1,this.loginerrorValues.emailErr1)
+        } else {
+            this.loginerrorValues.emailErr1 = ""
+            this.showSuccessMsg(1)
+        }
+    }
+   
+    validatePassword(){
+        if(this.loginformValues.password1 === ""){
+            this.loginerrorValues.passwordErr1 = "* Please Provide a Password"
+            this.showErrorMsg(2,this.loginerrorValues.passwordErr1)
+        } else if(this.loginformValues.password1.length <= 4){
+            this.loginerrorValues.passwordErr1 = "* Password must be atleast 5 Characters"
+            this.showErrorMsg(2,this.loginerrorValues.passwordErr1)
+        } else if(this.loginformValues.password1.length > 10){
+            this.loginerrorValues.passwordErr1 = "* Password should not exceeds 10 Characters"
+            this.showErrorMsg(2,this.loginerrorValues.passwordErr1)
+        } else {
+            this.loginerrorValues.passwordErr1 = ""
+            this.showSuccessMsg(2)
+        }
+    }
+    alertMessage(){
+		
+        const {usernameErr1 , emailErr1 , passwordErr1}= this.loginerrorValues
+        if(usernameErr1 === "" && emailErr1 === "" && passwordErr1 === ""){
+			
+            swal("Login Successful","ThankYou , "+this.loginformValues.username1,"success").then(() => {
+				  console.log(this.loginformValues)  
+				  location.href='home2.html'
+                this.removeInputs()	
+            })
+			
+        } else {
+            swal("Give Valid Inputs","Click ok to Continue" ,"error")
+        }
+    }
+
+    removeInputs(){
+        const form_groups1 = document.getElementsByClassName('form-group1')
+        Array.from(form_groups1).forEach(element => {
+            element.getElementsByTagName('input')[0].value = ""
+            element.getElementsByTagName('span')[0].textContent = ""
+            element.classList.remove('success')
+        })
+    }
+} 
+
+const ValidateUser = new loginFormValidation()
+
+document.getElementsByClassName('form1')[0].addEventListener('submit' , event => {
+    event.preventDefault()
+    ValidateUser.logingetInputs()
+    ValidateUser.validateUsername()
+    ValidateUser.validateEmail()
+    ValidateUser.validatePassword()
+    ValidateUser.alertMessage()
+})
+    </script>
+	<script>
+    class FormValidation{
+    formValues = {
+        username : "",
+        email : "",
+        phonenumber : "",
+        password : "",
+        confirmpassword : ""
+    }
+    errorValues = {
+        usernameErr : "",
+        emailErr : "",
+        phonenumberErr : "",
+        passwordErr : "",
+        confirmpasswordErr : ""
+    }
+    showErrorMsg(index,msg){
+        const form_group = document.getElementsByClassName('form-group')[index]
+        form_group.classList.add('error')
+        form_group.getElementsByTagName('span')[0].textContent = msg   
+    }
+    showSuccessMsg(index){
+        const form_group = document.getElementsByClassName('form-group')[index]
+        form_group.classList.remove('error')
+        form_group.classList.add('success')
+    }
+    getInputs(){
+        this.formValues.username = document.getElementById('username').value.trim()
+        this.formValues.email = document.getElementById('email').value.trim()
+        this.formValues.phonenumber = document.getElementById('phonenumber').value.trim()
+        this.formValues.password = document.getElementById('password').value.trim()
+        this.formValues.confirmpassword = document.getElementById('confirmpassword').value.trim()
+    }
+    validateUsername(){
+        if(this.formValues.username === ""){
+            this.errorValues.usernameErr = "* Please Enter Your Name"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else if(this.formValues.username.length <= 4 ){
+            this.errorValues.usernameErr = "* Username must be atleast 5 Characters"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else if(this.formValues.username.length > 14){
+            this.errorValues.usernameErr = "* Username should not exceeds 14 Characters"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else {
+            this.errorValues.usernameErr = ""
+            this.showSuccessMsg(0)
+        }
+    }
+    validateEmail(){
+        //abc@gmail.co.in
+        const regExp = /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
+        if(this.formValues.email === ""){
+            this.errorValues.emailErr = "* Please Enter Valid Email"
+            this.showErrorMsg(1,this.errorValues.emailErr)
+        } else if(!(regExp.test(this.formValues.email))){
+            this.errorValues.emailErr = "* Invalid Email"
+            this.showErrorMsg(1,this.errorValues.emailErr)
+        } else {
+            this.errorValues.emailErr = ""
+            this.showSuccessMsg(1)
+        }
+    }
+    validatePhonenumber(){
+       const phoneno = /^\d{10}$/
+       if(this.formValues.phonenumber === ""){
+           this.errorValues.phonenumberErr = "* Please Enter your Phone Number"
+           this.showErrorMsg(2,this.errorValues.phonenumberErr)
+       } else if(phoneno.test(this.formValues.phonenumber)){
+           this.errorValues.phonenumberErr = ""
+           this.showSuccessMsg(2)
+       } else {
+           this.errorValues.phonenumberErr = "* Invalid Phone Number"
+           this.showErrorMsg(2,this.errorValues.phonenumberErr)
+       }
+    }
+    validatePassword(){
+        if(this.formValues.password === ""){
+            this.errorValues.passwordErr = "* Please Provide a Password"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else if(this.formValues.password.length <= 4){
+            this.errorValues.passwordErr = "* Password must be atleast 5 Characters"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else if(this.formValues.password.length > 10){
+            this.errorValues.passwordErr = "* Password should not exceeds 10 Characters"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else {
+            this.errorValues.passwordErr = ""
+            this.showSuccessMsg(3)
+        }
+    }
+    validateConfirmpassword(){
+        if(this.formValues.confirmpassword === ""){
+            this.errorValues.confirmpasswordErr = "* Invalid Confirm Password"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        } else if(this.formValues.confirmpassword === this.formValues.password && this.errorValues.passwordErr === ""){
+            this.errorValues.confirmpasswordErr = ""
+            this.showSuccessMsg(4)
+        } else if(this.errorValues.passwordErr){
+            this.errorValues.confirmpasswordErr = "* An error occurred in Password Field"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        } else {
+            this.errorValues.confirmpasswordErr = "* Password Must Match"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        }
+    }
+    alertMessage(){
+        const {usernameErr , emailErr , phonenumberErr , passwordErr , confirmpasswordErr}= this.errorValues
+        if(usernameErr === "" && emailErr === "" && phonenumberErr === "" && passwordErr === "" && confirmpasswordErr === ""){
+            swal("Registration Successful","ThankYou , "+this.formValues.username,"success").then(() => {
+                console.log(this.formValues)
+				location.href='home2.html'
+                this.removeInputs()
+            })
+        } else {
+            swal("Give Valid Inputs","Click ok to Continue" ,"error")
+        }
+    }
+
+    removeInputs(){
+        const form_groups = document.getElementsByClassName('form-group')
+        Array.from(form_groups).forEach(element => {
+            element.getElementsByTagName('input')[0].value = ""
+            element.getElementsByTagName('span')[0].textContent = ""
+            element.classList.remove('success')
+        })
+    }
+} 
+
+const ValidateUserInputs = new FormValidation()
+
+document.getElementsByClassName('form')[0].addEventListener('submit' , event => {
+    event.preventDefault()
+    ValidateUserInputs.getInputs()
+    ValidateUserInputs.validateUsername()
+    ValidateUserInputs.validateEmail()
+    ValidateUserInputs.validatePhonenumber()
+    ValidateUserInputs.validatePassword()
+    ValidateUserInputs.validateConfirmpassword()
+    ValidateUserInputs.alertMessage()
+})
+    </script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--script>
+	function openForm(event, formName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		 }
+		tablinks = document.getElementsByClassName("tablinks");
+	        for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		   document.getElementById(formName).style.display = "block";
+		   event.currentTarget.className += " active";
+		}
+	       document.getElementById("default").click();
+   </script-->
+   
+   
+   
+   
+   
+   
+   
+   <!--script>
+    class FormValidation{
+    formValues = {
+        username : "",
+        email : "",
+        phonenumber : "",
+        password : "",
+        confirmpassword : ""
+    }
+    errorValues = {
+        usernameErr : "",
+        emailErr : "",
+        phonenumberErr : "",
+        passwordErr : "",
+        confirmpasswordErr : ""
+    }
+    showErrorMsg(index,msg){
+        const form_group = document.getElementsByClassName('form-group')[index]
+        form_group.classList.add('error')
+        form_group.getElementsByTagName('span')[0].textContent = msg   
+    }
+    showSuccessMsg(index){
+        const form_group = document.getElementsByClassName('form-group')[index]
+        form_group.classList.remove('error')
+        form_group.classList.add('success')
+    }
+    getInputs(){
+        this.formValues.username = document.getElementById('username').value.trim()
+        this.formValues.email = document.getElementById('email').value.trim()
+        this.formValues.phonenumber = document.getElementById('phonenumber').value.trim()
+        this.formValues.password = document.getElementById('password').value.trim()
+        this.formValues.confirmpassword = document.getElementById('confirmpassword').value.trim()
+    }
+    validateUsername(){
+        if(this.formValues.username === ""){
+            this.errorValues.usernameErr = "* Please Enter Your Name"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else if(this.formValues.username.length <= 4 ){
+            this.errorValues.usernameErr = "* Username must be atleast 5 Characters"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else if(this.formValues.username.length > 14){
+            this.errorValues.usernameErr = "* Username should not exceeds 14 Characters"
+            this.showErrorMsg(0,this.errorValues.usernameErr)
+        } else {
+            this.errorValues.usernameErr = ""
+            this.showSuccessMsg(0)
+        }
+    }
+    validateEmail(){
+        //abc@gmail.co.in
+        const regExp = /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
+        if(this.formValues.email === ""){
+            this.errorValues.emailErr = "* Please Enter Valid Email"
+            this.showErrorMsg(1,this.errorValues.emailErr)
+        } else if(!(regExp.test(this.formValues.email))){
+            this.errorValues.emailErr = "* Invalid Email"
+            this.showErrorMsg(1,this.errorValues.emailErr)
+        } else {
+            this.errorValues.emailErr = ""
+            this.showSuccessMsg(1)
+        }
+    }
+    validatePhonenumber(){
+       const phoneno = /^\d{10}$/
+       if(this.formValues.phonenumber === ""){
+           this.errorValues.phonenumberErr = "* Please Enter your Phone Number"
+           this.showErrorMsg(2,this.errorValues.phonenumberErr)
+       } else if(phoneno.test(this.formValues.phonenumber)){
+           this.errorValues.phonenumberErr = ""
+           this.showSuccessMsg(2)
+       } else {
+           this.errorValues.phonenumberErr = "* Invalid Phone Number"
+           this.showErrorMsg(2,this.errorValues.phonenumberErr)
+       }
+    }
+    validatePassword(){
+        if(this.formValues.password === ""){
+            this.errorValues.passwordErr = "* Please Provide a Password"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else if(this.formValues.password.length <= 4){
+            this.errorValues.passwordErr = "* Password must be atleast 5 Characters"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else if(this.formValues.password.length > 10){
+            this.errorValues.passwordErr = "* Password should not exceeds 10 Characters"
+            this.showErrorMsg(3,this.errorValues.passwordErr)
+        } else {
+            this.errorValues.passwordErr = ""
+            this.showSuccessMsg(3)
+        }
+    }
+    validateConfirmpassword(){
+        if(this.formValues.confirmpassword === ""){
+            this.errorValues.confirmpasswordErr = "* Invalid Confirm Password"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        } else if(this.formValues.confirmpassword === this.formValues.password && this.errorValues.passwordErr === ""){
+            this.errorValues.confirmpasswordErr = ""
+            this.showSuccessMsg(4)
+        } else if(this.errorValues.passwordErr){
+            this.errorValues.confirmpasswordErr = "* An error occurred in Password Field"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        } else {
+            this.errorValues.confirmpasswordErr = "* Password Must Match"
+            this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+        }
+    }
+    alertMessage(){
+        const {usernameErr , emailErr , phonenumberErr , passwordErr , confirmpasswordErr}= this.errorValues
+        if(usernameErr === "" && emailErr === "" && phonenumberErr === "" && passwordErr === "" && confirmpasswordErr === ""){
+            alert("Registration Successful")
+               // console.log(this.formValues)
+				location.href='home2.html'
+                this.removeInputs()
+           
+        } else {
+            alert("Give Valid Inputs","Click ok to Continue")
+        }
+    }
+
+    removeInputs(){
+        const form_groups = document.getElementsByClassName('form-group')
+        Array.from(form_groups).forEach(element => {
+            element.getElementsByTagName('input')[0].value = ""
+            element.getElementsByTagName('span')[0].textContent = ""
+            element.classList.remove('success')
+        })
+    }
+} 
+
+const ValidateUserInputs = new FormValidation()
+
+document.getElementsByClassName('form')[0].addEventListener('submit' , event => {
+    event.preventDefault()
+    ValidateUserInputs.getInputs()
+    ValidateUserInputs.validateUsername()
+    ValidateUserInputs.validateEmail()
+    ValidateUserInputs.validatePhonenumber()
+    ValidateUserInputs.validatePassword()
+    ValidateUserInputs.validateConfirmpassword()
+    ValidateUserInputs.alertMessage()
+})
+    </script-->
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--div id="signup" class="tabcontent">
+			<u style="color:white;text-align:center"><h2>Sign Up Form</h2><hr></u>
+			<form class="form" method="post">
+				<div class="form-group">
+					<label for="">UserName : </label>
+					<input type="text" placeholder="Enter Name" id = "username">
+					<i class="ion-ios-checkmark"></i>
+					<i class="ion-android-alert"></i>
+					<span></span>
+				</div>
+				<div class="form-group">
+					<label for="">Email : </label>
+					<input type="text" placeholder="Enter Email" id = "email">
+					<i class="ion-ios-checkmark"></i>
+					<i class="ion-android-alert"></i>
+					<span></span>
+				</div>
+				<div class="form-group">
+					<label for="">Phone Number : </label>
+					<input type="text" placeholder="Enter phone Number" id = "phonenumber">
+					<i class="ion-ios-checkmark"></i>
+					<i class="ion-android-alert"></i>
+					<span></span>
+				</div>
+				<div class="form-group">
+					<label for="">Password : </label>
+					<input type="password" placeholder="Enter password" id = "password">
+					<i class="ion-ios-checkmark"></i>
+					<i class="ion-android-alert"></i>
+					<span></span>
+				</div>
+				<div class="form-group">
+					<label for="">Confirm Password : </label>
+					<input type="password" placeholder="Confirm password" id = "confirmpassword">
+					<i class="ion-ios-checkmark"></i>
+					<i class="ion-android-alert"></i>
+					<span></span>
+				</div>
+				<button id ='submit' >Submit</button>
+			</form>
+		</div-->
+		
+		
+		
+		<!--div class="navtitle">
+			<div class="tab">
+				<button class="tablinks" onclick="openForm(event, 'login')" id="default">Login</button>
+				<button class="tablinks" onclick="openForm(event, 'signup')">Sign Up</button>
+			</div>	
+		</div-->

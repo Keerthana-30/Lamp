@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>example</title>
+		<style>
+			/*universal selector*/
+			*{  
+			   color: green;  
+			   border:2px solid black;
+			   padding:10px;
+			}   
+		    /*element selector*/
+			h1{
+				color:blue;
+				background-color:pink;
+			}
+			/*id selector*/
+			#paragraph{
+				color:red;
+				text-align:center;/*aligns the paragraph in the center*/
+			}
+			/*class selector*/
+			.para{
+				color:pink;
+			}
+			/*chnages the button*/
+			#button{
+				border-radius:10px;/*changes the border radius*/
+				font-size:20px;/*chnages the font inside the button*/
+			}
+		</style>
+	</head>
+	<body>
+		<h1 onmouseover='mouseOver()'>welcome</h1>
+		<p id="paragraph">The id selector selects the id attribute of an HTML element to select a specific element. 
+		   An id is always unique within the page so it is chosen to select a single, unique element.
+           It is written with the hash character (#), followed by the id of the element.
+        </p>
+        <p class="para">The id selector selects the id attribute of an HTML element to select a specific element. 
+		   An id is always unique within the page so it is chosen to select a single, unique element.
+           It is written with the hash character (#), followed by the id of the element.
+        </p>
+		<input type="button" id="button" onclick="msg()" value="call function message"/>55
+		<button onclick="getcube(3)">call function arguments</button>
+		
+		<input type='button' onclick='clickEvent()' value='click me'>
+		
+		
+	<script>  
+	//when the call function is clicked msg() function is called and the alret message is displayed
+	function msg(){  
+		alert("hello! this is message");  
+	}  
+	
+	function getcube(number){  
+		alert(number*number*number);  
+	}  
+	
+	//map function
+	function multiply(number){
+		return number*2;
+	}
+	let array=[2,3,4,5];
+	array =array.map(multiply);//We give a function to the map(), and map() calls the function once for each item in the array, passing in the item. It then adds the return value from each function call to a new array, and finally returns the new array.
+	console.log(array);
+	
+	function clickEvent(){
+		document.write("Hello world!");
+	}
+	
+	function mouseOver(){//when the mouse moves over the h1 tag the alert msg will be popped
+		alert("this is mouseover");
+	}
+	
+	</script>  
+	
+	</body>
+</html>

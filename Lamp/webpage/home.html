@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Pagies Diner</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+	  <style>
+        body{
+		  margin:0;
+		}
+		h2 {
+		  font-family: "Sofia", sans-serif;
+		  font-size:30px;
+		}
+		.navbar {
+		  background: rgba(0, 0, 0, 0.5);
+		  overflow: hidden;
+		  position: fixed;	;
+		  top:0;
+		  width: 100%;
+		}
+		.navbar a {
+		  float: right;
+		  display: block;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 15px 15px;
+		  text-decoration: none;
+		  font-size: 17px;
+		  margin:5px;
+		}
+		.navbar a:hover{
+		  opacity:0.5;
+		}
+		.header {
+		  padding: 20px;
+		  text-align: center;
+		  /*background: #1abc9c;*/
+		  background-image:url("https://t4.ftcdn.net/jpg/02/32/48/35/360_F_232483527_B9KZazS7LsGexMg0icM1gUNghIcqJDvL.jpg");
+		  background-repeat:no-repeat;
+		  background-size:cover;
+		  color: white;
+		  font-size: 30px;
+		  height:max-content;
+		  background-attachment:fixed;
+		}
+		
+		.header button{
+			background:none;
+			padding:10px 25px;
+			font-size:18px;
+			border-radius:6px;
+			color:#fff;
+			transition:0.5s all ease;
+		}
+		.header button:hover{
+			background:black;
+			color:#fff;
+		}
+		h1{
+			font-family: 'Brush Script MT', cursive;
+		}
+		.main{
+			max-width: 90%;
+		    margin:10px auto;
+		    /*border:2px solid black;*/
+		}
+		
+		.about{
+			margin-top:35px;
+			margin-bottom:0px;
+			width:100%;
+			padding:0px 0px;
+			/*border:1px solid black;*/
+		}
+		.about img{
+			height:400px;
+			width:650px;
+		}
+		.row{
+	        text-align:center;
+			/*border:0.5px solid black;*/
+			padding:0px;
+			display:grid;
+		    grid-template-columns:50% 50%;
+		    
+		}
+		.column{
+			/*border:2px solid black;*/
+			height:550px;
+			margin-bottom:10px;
+			margin-top:2px;
+		}
+		
+		
+        .container,h2{
+			/*margin:10px;*/
+	        text-align:center;
+		}
+		.specials{ 
+		    box-shadow: 0 5px 8px 5 rgba(0, 0, 0, 0.5);
+			display:inline-block;
+			margin:10px;
+			border-radius:2px;
+		}
+		.specials img{
+		    padding:15px;
+			width:300px;
+			height:200px;
+			border-radius:2px;
+			
+		}
+		.specials:hover{
+			transform: scale(1.05);
+			
+			cursor: pointer;
+			box-shadow: 2px
+		}
+		#services{
+			width:200px;
+			height:200px;
+		}
+		.image-title{
+			text-align:center;
+			padding:10px;
+			font-weight:bold;
+			font-size:20px;
+		}
+		
+		.logo{
+			float:left;
+		}
+		.logo img{
+			width:30px;
+			height:30px;
+			border-radius:20px;
+		}
+		input{
+			font-family:'Montserrat',sans-serif;
+			font-weight:700;
+			letter-spacing:1px;
+		}
+		.reservation{
+			border:5px solid black;
+			margin-top:10px;	
+		}
+		.reservation .form-control{
+		    margin:10px;
+			border:1px solid black;
+			width:500px;
+			height:400px;
+			padding:20px;
+			text-align:center;
+		}
+		.form-control-content{
+			color: #ea1d6f;
+			flex-direction: column;
+			font-size:26px;
+		}
+		
+		.input-container {
+		  display: -ms-flexbox; /* IE10 */
+		  display: flex;
+		  width: 100%;
+		  margin-bottom: 10px;
+		}
+
+		.icon {
+		  padding: 10px;
+		  background: black;
+		  color: white;
+		  min-width: 50px;
+		  text-align: center;
+		}
+
+		.input-field {
+		  width: 100%;
+		  padding: 10px;
+		  outline: none;
+		}
+
+		.input-field:focus {
+		  border: 2px solid black;
+		}
+
+		/* Set a style for the submit button */
+		.btn {
+		  background-color: black;
+		  transition:0.5s all ease;
+		  color: white;
+		  font-weight:bold;
+		  padding: 15px 20px;
+		  border: 1px solid black;
+		  cursor: pointer;
+		  width: 100%;
+		}
+
+		.btn:hover {
+		  opacity: 1;
+		}
+		.content img{
+		    margin-top:60px;
+			padding-top:0px;
+			width:95%;
+			height:100%;
+			border:1px solid black;
+		}
+		footer{
+			margin-top:20px;
+			text-align:center;
+		}
+		.footer-row{
+			text-align:center;
+			height:90px;
+			padding-top:10px;
+			margin:20px;
+			font-size:20px;
+			display:grid;
+		    grid-template-columns:auto auto auto;
+	    }
+		footer li{
+		  list-style-type: none;
+		}
+		
+      </style>
+	 
+  </head>
+<body>
+
+    <!-- Navbar (Sits on top) -->
+	
+    <div class="navbar">
+		<div class="logo">
+			<a href="#"><img src="https://media.istockphoto.com/vectors/letter-p-logo-icon-design-vector-id1135090585?k=20&m=1135090585&s=612x612&w=0&h=mWclUaBoAVmI8YvaYnEYzQIohgunXzc6VGFRK0eS7eI="></a>
+	    </div>
+       <a href="menu.html" class="">MENU</a>
+       <a href="#about" class="">ABOUT</a>
+       <a href="#footer" class="">CONTACT</a>
+       <a href="#header" class="">HOME</a>
+	   <a href="loginsignup.html" class="">LOGIN/SIGNUP</a>
+	   
+    </div>
+	<!--Header image-->
+	<div class="header" id="header">
+	    <h1 class="font-effect-outline">Welcome to Pagie's Diner</h1>
+	    <p>An authentic Restaurant</p>
+		<a href="#table"><button type="button" > Book a table</button></a>
+		<a href="#menu"><button type="button" > Menu Card</button></a>
+	</div>
+	
+	<div class="main">
+	    <div class="heading">
+			<u><h2 class="font-effect-shadow-multiple">Today's Special</h2></u>
+			<hr>
+		</div>
+		<div class="container">			  
+				<div class="specials">
+					<img src="steak.jpeg" alt="Steak">
+					<div class="image-title">Steak</div>
+					
+				</div>
+			
+				<div class="specials">
+					<img src="Dhahi.jpeg" alt="Dhahi Puri">
+					<div class="image-title">Dhahi Puri</div>
+				</div>
+			
+				<div class="specials">
+					<img src="chickenmasala.jpeg" alt="Chicken americano masala">
+					<div class="image-title">Chicken americano masala</div>
+				</div>
+		</div>
+	
+	
+		<div id="about" class="about">
+			<div class="row">
+				<div class="column">
+				    <div class="content">
+						<u><h2 class="font-effect-shadow-multiple">About</h2><br></u>
+						<h3>Tradition since 1889</h3>
+						<p>
+						The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, 
+						consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor 
+						incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+						deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod 
+						temporinci</p>
+					</div>
+				</div>
+				<div class="column">
+					  <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+			    </div>
+			</div>
+		</div>
+		<div class="header">
+			<div class="menu" id="menu">
+				
+					<p>The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, 
+						consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor 
+						incididunt ut labore et dolore magna aliqua.</p>
+					<a href="menu.html"><button type="button" > Menu</button></a>
+				
+			</div>
+		</div>
+		
+		<div class="container">
+				<u><h2 class="font-effect-shadow-multiple">Services Offered</h2><hr></u>
+				<div class="specials">
+					<img src="4.jpg" alt="Home Delivery" id="services">
+					<div class="image-title">Home Delivery</div>
+					
+				</div>
+		
+				<div class="specials">
+					<img src="events.jpg" alt="Events" id="services">
+					<div class="image-title">Events</div>
+				</div>
+			
+				<div class="specials">
+					<img src="reservation.jpeg" alt="Reservations" id="services">
+					<div class="image-title">Reservations</div>
+				</div>
+				
+				<div class="specials">
+					<img src="catering.jpg" alt="Catering" id="services">
+					<div class="image-title">Catering</div>
+				</div>
+		</div>
+		
+		<u><h2 class="font-effect-shadow-multiple" id="table">Book a Table</h2><hr></u>
+		<div class="header" >
+			
+		    <div class="row" >
+				<div class="column">
+				   <div class="content">
+					   <form action="#" style="max-width:500px;margin:auto" method='post' class="">
+						  <u><h2>Reservation Form</h2><hr></u>
+						  <div class="input-container">
+							<i class="fa fa-user icon"></i>
+							<input class="input-field" type="text" placeholder="Name" id="username1">
+							<i class="ion-ios-checkmark"></i>
+							<i class="ion-android-alert"></i>
+							<span></span>
+						  </div>
+
+						  <div class="input-container">
+							<i class="fa fa-envelope icon"></i>
+							<input class="input-field" type="text" placeholder="Email" id="email1" name='email1'>
+							<i class="ion-ios-checkmark"></i>
+							<i class="ion-android-alert"></i>
+							<span></span>
+						  </div>
+						  
+						  <div class="input-container">
+							<i class="fa fa-phone icon"></i>
+							<input class="input-field" type="tel" placeholder="Phone Number" id="number1" name='number1'>
+							<i class="ion-ios-checkmark"></i>
+							<i class="ion-android-alert"></i>
+							<span></span>
+						  </div>
+						  
+						  <div class="input-container">
+							<i class="fa fa-users icon"></i>
+							<input class="input-field" type="number" placeholder="Number of people" id="numberofpeople" name='numberofpeople'>
+						  </div>
+						  
+						  <div class="input-container">
+							<i class="fa fa-calendar-o icon"></i>
+							<input class="input-field" type="date" placeholder="Booking Date" id="date" name='date'>
+						  </div>
+						  
+						  <div class="input-container">
+							<i class="fa fa-clock-o icon"></i>
+							<input class="input-field" type="time" placeholder="time" id="time" name='time'>
+						  </div>
+						  
+						  
+						  <input type="submit" class="btn" id ='submit' onclick='validations()' value='Reserve a table'>
+						</form>
+					</div>
+				</div>
+			
+			    <div class="column">
+				    <div class="content">
+					  <img src="https://images.pexels.com/photos/1850595/pexels-photo-1850595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+					  </div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<footer id="footer">
+			<div class="header">
+			    <div class="footer-row">
+					<div class="footer-column">
+					  
+					   <ul>
+					    <li><b>Quick links:</b></li>
+						<li><a href="menu.html">Menu</a></li>
+						<li><a href="#about">About Us</a></li>
+						<li><a href="home.html">Home</a></li>
+					   </ul>
+					</div>
+					<div class="footer-column">
+						<address>
+							<b>Location:</b><br>
+							410-602-8008<br>
+							15 Florida Ave<br>
+							Palo-Alto, 1111 CA
+						</address>
+					</div>
+					<div class="footer-column">
+					   <ul>
+					    <li><b>Email: </b><a href="mailto:pagiesdiner@gmail.com?cc=secondemail@example.com, anotheremail@example.com, &bcc=lastemail@example.com&subject=Mail from our Website&body=Dear W3docs Team">pagiesdiner@gmail.com</a></li>
+					    <li><b>contact:</b>789654132</li>
+					   </ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+	</div>
+	
+	
+	
+	
+	
+</body>
+</html>

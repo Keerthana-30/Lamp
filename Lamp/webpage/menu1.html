@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body{
+			background-image:url("https://images.unsplash.com/photo-1458387852194-bae1ec83d812?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHwxNTMzNTEwfHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+			background-repeat:no-repeat;
+			background-size:cover;
+			position:center;
+			margin:auto;	
+		}
+		.header {
+			  background: rgba(0, 0, 0, 0.5);
+			  padding: 60px;
+			  text-align: center;
+			  /*background: #1abc9c;
+			  background-color:grey;*/
+			  color: white;
+			  font-size: 20px;
+			  height:100px;
+			  background-attachment:fixed;
+			}
+		h1{
+			font-size:50px;
+			text-align:center;
+			margin:45px;
+		}
+		.navbar {
+			  background: rgba(0, 0, 0, 0.5);
+			  overflow: hidden;
+			  position: fixed;
+			  top:0;
+			  width: 100%;
+			}
+		.navbar a{
+			float: right;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 15px 15px;
+			text-decoration: none;
+			font-size: 17px;
+			margin:5px;
+		}
+		.navbar a:hover{
+		    opacity:0.5;
+		}
+		.cartbutton {
+			float:right;
+			color:black;
+			padding: 15px 15px;
+			margin:5px;
+		}
+		.main {
+			/*border:20px solid white;*/
+		    max-width: 90%;
+		    margin:auto;
+		}
+		
+		.navtitle{
+		    text-align:center;
+		}
+		
+		.tab button {
+			  margin:20px;
+			  background-color:black;
+			  color:white;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			  font-size: 17px;
+			  border-radius:10px;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+			background-color:pink;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+			background-color: #ccc;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+			padding: 6px 6px;
+			border: 1px solid #ccc;
+		 
+		}
+		
+	
+		
+		.shop-item {
+			margin: 30px;
+			border:2px solid white;
+			box-shadow: 0 5px 8px 5 rgba(0, 0, 0, 0.5);
+			background: rgba(0, 0, 0, 0.2);
+			display:inline-block;
+			margin:10px;
+			width:260px;
+			border-radius:10px;
+			padding:5px;
+			text-align:center;
+		}
+
+		.shop-item-title {
+			display: block;
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+			font-size: 1.5em;
+			color: white;
+			margin-bottom: 15px;
+		}
+
+		.shop-item-image {
+			padding:10px;
+			width:240px;
+			height:200px;
+			border-radius:5px;
+		}
+
+		.shop-item-details {
+			display: flex;
+			align-items: center;
+			padding: 5px;
+			/*border:5px solid black;*/
+		}
+
+		.shop-item-price {
+			flex-grow: 1;
+			color: white;
+		}
+		.shop-items {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		.shop-item:hover{
+			transform: scale(1.05);
+			cursor: pointer;
+			box-shadow: 2px
+		}
+	    .shop-item button {
+		  background-color: #04AA6D;
+		  border:5px solid black;
+		  color: black;
+		  font-size:15px;
+		  font-weight:bold;
+		  padding: 10px 15px;
+		  margin: 8px 0;
+		  border: none;
+		  cursor: pointer;
+		  width: 60%;
+		  border-radius:5px;
+		}
+		
+		.shop-item button:hover {
+		  opacity: 0.8;
+		}
+		
+		
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */ background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%;
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+	background:black;
+	padding:5px;
+	font-size:18px;
+	border-radius:6px;
+	color:#fff;
+	transition:0.5s all ease;
+}
+	</style>
+	
+	
+	<script src="cart.js" async></script>
+	<link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body>
+	<div class="navbar">
+	
+		<div class="cartbutton">
+			<button id="myBtn"><i class=" fa fa-shopping-cart"> </i></button>
+	    </div>
+	   
+       <a href="loginsignup.html" class="">LOGOUT</a>
+       <a href="#about" class="">ABOUT</a>
+       <a href="#contact" class="">CONTACT</a>
+       <a href="home2.html" class="">HOME</a>
+	    
+	  
+    </div>
+	<div class="header">
+		<h1>Menu</h1>
+	</div>
+	<div class="main">
+	    <div class="navtitle">
+			<div class="tab">
+			  
+			  
+			  <button class="tablinks" onclick="openCity(event, 'starters')" id="default1">Starters</button>
+			  <button class="tablinks" onclick="openCity(event, 'mains')">Mains</button>
+			  <button class="tablinks" onclick="openCity(event, 'dessert')">Dessert</button>
+			  <button class="tablinks" onclick="openCity(event, 'snacks')">Snacks</button>
+			  <button class="tablinks" onclick="openCity(event, 'beverages')">Beverages</button>
+			</div>
+		</div>
+
+		<div id="starters" class="tabcontent">
+		 
+
+		<section class="container content-section">
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Fresh Bread Basket</span>
+                    <img class="shop-item-image" src="https://cdn8.dissolve.com/p/D1062_37_192/D1062_37_192_1200.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button" id="addbutton">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Smoked Sprouts</span>
+                    <img class="shop-item-image" src="https://images.kitchenstories.io/wagtailOriginalImages/R1518_photo_final_1/R1518_photo_final_1-large-landscape-150.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$6.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+				<div class="shop-item">
+                    <span class="shop-item-title">Rock Oysters</span>
+                    <img class="shop-item-image" src="https://whittensoysters.com.au/wp-content/uploads/OysterBowl.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$10.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+				<div class="shop-item">
+                    <span class="shop-item-title">Blue Mussels</span>
+                    <img class="shop-item-image" src="https://t4.ftcdn.net/jpg/02/76/94/63/360_F_276946344_Xa3PI2Tjn5tXXBIRbQBQObGCDjh049HS.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$11.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+				<div class="shop-item">
+                    <span class="shop-item-title">Potted Crab</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq3juF0KAVUEeamP9gh7DKIeg2LH580XRK_w&usqp=CAU">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$6.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+				<div class="shop-item">
+                    <span class="shop-item-title">Pasta</span>
+                    <img class="shop-item-image" src="https://images.pexels.com/photos/5807019/pexels-photo-5807019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$5.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+		</div>
+
+		<div id="mains" class="tabcontent">
+				<section class="container content-section">
+				<div class="shop-items">
+					<div class="shop-item">
+						<span class="shop-item-title">Pasta with Asparagus</span>
+						<img class="shop-item-image" src="https://renerestaurantsedona.com/wp-content/uploads/2015/05/italian-food-background.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$19.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Baked Spaetze</span>
+						<img class="shop-item-image" src="https://t3.ftcdn.net/jpg/02/91/49/16/240_F_291491685_MMYSci5s2x4sHtl4xpqRSu9XW3hB51HI.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$40.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Pasta with Rachhiho</span>
+						<img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJXSO6TUix0QwIJ0rdBSGD-G-qJC4MzjMfpaxLut5MyFJjVVZx3-e4uO2A0Ei3WwKShck&usqp=CAU">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$16.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">French Toast with onions</span>
+						<img class="shop-item-image" src="https://images.unsplash.com/photo-1588484588657-0bbbee05132f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJlbmNoJTIwdG9hc3R8ZW58MHx8MHx8&w=1000&q=80">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$12</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Vegan Pizza</span>
+						<img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfStKiHmovnNvZBfO4QPyFruXDw8uS66r-Mg&usqp=CAU">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Coffee Cup</span>
+						<img class="shop-item-image" src="Images/Cofee.png">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+				</div>
+        </section>				 
+		</div>
+
+		<div id="dessert" class="tabcontent">
+		  <section class="container content-section">
+				<div class="shop-items">
+					<div class="shop-item">
+						<span class="shop-item-title">Chocolate Mousse</span>
+						<img class="shop-item-image" src="https://i.pinimg.com/736x/02/06/4c/02064c5f2856651da70eb21d72a0288e--chocolate-strawberry-cake-chocolate-mousse-cake.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$7.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Orange Pudding</span>
+						<img class="shop-item-image" src="https://monishgujral.com/wp-content/uploads/2021/05/C5C645D1-1439-4F4F-9EB4-03C4A9CE9B6F.jpeg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Nutella Crepe</span>
+						<img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVbEk06vCTKo_C3PpTPeRyjpdCpYBT0h1YYTPkjCEXlrwCmiUjMaEOCN4rfBX15DvD0RE&usqp=CAU">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$8</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Eclairs</span>
+						<img class="shop-item-image" src="https://media.istockphoto.com/photos/eclair-or-bomba-de-chocolate-traditional-brazilian-clair-filled-with-picture-id1339104966?k=20&m=1339104966&s=612x612&w=0&h=dlracDjRHM5jg8rSmw0KFQeZJZKkj6C6PVDH94jldlo=">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$7</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Crosiaant</span>
+						<img class="shop-item-image" src="https://media.istockphoto.com/photos/breakfast-with-croissants-coffee-orange-juice-and-berries-picture-id1001971972?k=20&m=1001971972&s=170667a&w=0&h=FQIZC_eiFvDkcRnWrIVtaaP3mT5A8pd7o3jBf9EFewQ=">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$10.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Crepe</span>
+						<img class="shop-item-image" src="https://ak.picdn.net/shutterstock/videos/1032001313/thumb/1.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+				</div>
+        </section>			 
+		</div>
+		
+		<div id="snacks" class="tabcontent">
+		  <section class="container content-section">
+				<div class="shop-items">
+					<div class="shop-item">
+						<span class="shop-item-title">Cheese Toastie</span>
+						<img class="shop-item-image" src="https://media.istockphoto.com/photos/mexican-street-tacos-flat-lay-composition-picture-id638951176?k=20&m=638951176&s=612x612&w=0&h=LrLrvRq3l1wFVbWcMhb8slfp52_DeO-sn5CRsguvjDA=">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$3.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Tortilla Espanola</span>
+						<img class="shop-item-image" src="https://i.pinimg.com/originals/fe/dc/48/fedc48a6b9d4b9112824f2e3b40f5618.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$4.50</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Fries</span>
+						<img class="shop-item-image" src="https://thumbs.dreamstime.com/b/hot-french-fries-white-plate-black-background-183627468.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$200</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Garlic Shrimps</span>
+						<img class="shop-item-image" src="https://photo2.foodgawker.com/wp-content/uploads/2016/12/2846226.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$7.25</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Greek Salad</span>
+						<img class="shop-item-image" src="https://t3.ftcdn.net/jpg/03/16/48/52/360_F_316485277_qxpSGZPXBi7e1dt2sMGP9huY8PixwUsc.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$5.00</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Burger</span>
+						<img class="shop-item-image" src="https://media.istockphoto.com/photos/closeup-of-hamburger-with-black-background-picture-id1316673633?b=1&k=20&m=1316673633&s=170667a&w=0&h=4SUWvRqmq9eblMeMAksP_jL_J-fMUvnQUBHzfRClOZk=">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+				</div>
+        </section>			 
+		</div>
+		
+		<div id="beverages" class="tabcontent">
+		  <section class="container content-section">
+				<div class="shop-items">
+					<div class="shop-item">
+						<span class="shop-item-title">Cold Coffee</span>
+						<img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJ-PJtaHt3Bhcuf9pB1ck6_WHJf6kIRO6z9gqTuNKwGOqLj7BO59B4o-QLJaZR-Zk68g&usqp=CAU">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$19.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Chocolate Shake</span>
+						<img class="shop-item-image" src="https://thumbs.dreamstime.com/b/strawberry-chocolate-milk-shake-fresh-mint-black-background-31859729.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$5.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Orio Shake</span>
+						<img class="shop-item-image" src="https://us.123rf.com/450wm/101ideas/101ideas0905/101ideas090500006/4888456-cold-mocha-chocolate.jpg?ver=6">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Tea</span>
+						<img class="shop-item-image" src="https://media.istockphoto.com/photos/white-cup-of-tea-picture-id157282340?k=20&m=157282340&s=612x612&w=0&h=dtjB0KRczTuBLlxr8AFmBcshmozOWjkIZ3eizOcXNDE=">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$2.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Kiwi shake</span>
+						<img class="shop-item-image" src="http://adwallpapers.xyz/uploads/posts/20084-iced-macha-green-tea-isolated-from-black-background.jpg">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$6.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+					<div class="shop-item">
+						<span class="shop-item-title">Thick cold coffee</span>
+						<img class="shop-item-image" src="https://images.unsplash.com/photo-1577805947697-89e18249d767?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHR3aXh8ZW58MHx8MHx8&w=1000&q=80">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$8.99</span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+					</div>
+				</div>
+        </section>		 
+		</div>
+		
+		
+		
+		
+		<div id='myModal' class='modal'>
+		   <div class='modal-content'>
+		        <span class="close">&times;</span>
+		        <section class="container content-section">
+					<h2 class="section-header">CART</h2>
+					<div class="cart-row">
+						<span class="cart-item cart-header cart-column">ITEM</span>
+						<span class="cart-price cart-header cart-column">PRICE</span>
+						<span class="cart-quantity cart-header cart-column">QUANTITY</span>
+					</div>
+					<div class="cart-items">
+					</div>
+					<div class="cart-total">
+						<strong class="cart-total-title">Total</strong>
+						<span class="cart-total-price">$0</span>
+					</div>
+					<button class="btn btn-primary btn-purchase" type="button" >PURCHASE</button>
+				</section>
+			</div>
+		</div>
+	<!-- END MAIN -->
+   </div>
+	<!--footer id="footer">
+		<div class="a">
+		   <b>Quick links:</b>
+		   <br>
+		    <a href="menu.html">Menu</a> <br>
+			<a href="/homepage.html/#about">About Us</a> <br>
+			<a href="homepage.html">Home</a>
+		</div>
+		<div>
+			<address>
+				<b>Location:</b><br>
+				Box 564, Disneyland<br>
+				USA
+			</address>
+		</div>
+        <div>
+		   <b>Email:</b>dychdy@gmail.com
+		   <br>
+		   <b>contact:</b>789654132
+		</div-->
+		
+	</footer>
+	<script>
+		function openCity(evt, cityName) {
+		  var i, tabcontent, tablinks;
+		  tabcontent = document.getElementsByClassName("tabcontent");
+		  for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName("tablinks");
+		  for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		  }
+		  document.getElementById(cityName).style.display = "block";
+		  evt.currentTarget.className += " active";
+	    }
+		 document.getElementById("default1").click();
+		 
+		 
+		 
+		 
+		 
+		 var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+		  }
+		}
+    </script>
+</body>
+</html>	

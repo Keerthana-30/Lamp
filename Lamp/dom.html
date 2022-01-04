@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dom example</title>
+		<style>
+			
+		</style>
+	</head>
+	<body onload='alert("page loaded successfully")'><!-- onload event occurs when a object is loaded(page is loaded)-->
+	    <form id="form1">
+            <label for ="form1_name"> Enter name: </label>
+			<input type="text" name="name" id="form1_name" onfocus='focusEvent()' autocomplete='off'> <!-- autocomplete off does not show that suggestions-->
+			
+			<label for ="place">Enter place:</label>
+			<input type="text" class="form1_place" id='place' name="form1_place" id="form1_place">
+            <input type='button' value='Button' onclick='print()'>
+			<!--button onclick="print()">print</button-->
+		</form>
+
+		<button id="button_A">Form</button> 
+		<p id="para"></p>
+		<div id='form'></div>
+		<div>
+			<label for="weather">Select the weather type today: </label>
+			<select id="weather">
+			  <option value="">--Make a choice--</option>
+			  <option value="sunny">Sunny</option>
+			  <option value="rainy">Rainy</option>
+			  <option value="snowing">Snowing</option>
+			  <option value="overcast">Overcast</option>
+			</select>
+			<p id='selectPara'></p>
+		</div>
+		
+		
+		
+	<script>  
+		function focusEvent(){
+			document.getElementById('form1_name').style.background='pink';
+		}
+	    //when the print button is clicked print function is called 
+	    function print(){
+			let name=document.getElementById('form1_name').value;//gets the name by using id="form1_name" and stores it in name 
+			//console.log(name);
+			
+			let place=document.getElementsByClassName('form1_place')[0].value;
+			//console.log(place);
+			alert("hi! "+name+" from "+place);// shows the alert box
+	    }
+	
+	
+		const buttonA = document.querySelector('#button_A');
+		//const headingA = document.querySelector('#heading_A');
+		buttonA.onclick = () => {
+		 var data=`<form><label for='name'>Name:</label><br><input type='text' id='name' name='name'><br><label for ='gender'>Gender:</label>
+		           <br><input type='radio' id='gender' name='gender' value='male'>Male <input type='radio' id='gender' name='gender' value='female'>Female <br>
+				   <textarea rows='5' cols='50'></textarea><br><input type='submit' value='Submit'></form>`
+					  
+		  const name = prompt('What is your name?');
+		  alert(`Hello ${name}, nice to see you!`);// shows  the message in alert box
+		  //headingA.textContent = `Welcome ${name}`;// show on the screen
+		  document.getElementById('para').innerText='Hi!' + name;//used to write dynamic text on html document
+		  document.getElementById('form').innerHTML=data; //used to write the dynamic html code
+		}
+		
+		
+		
+		const select = document.querySelector('select');
+		const para = document.querySelector('#selectPara');
+		//console.log(select) gets the whole select tag
+		// console.log(para) gets the whole p tag 
+		select.addEventListener('change', setWeather);
+
+		function setWeather() {
+		  const choice = select.value;
+		  //console.log(choice) the option we choose
+		  if (choice === 'sunny') {
+			para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+		  } else if (choice === 'rainy') {
+			para.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.';
+		  } else if (choice === 'snowing') {
+			para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+		  } else if (choice === 'overcast') {
+			para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+		  } else {
+			para.textContent = '';
+		  }
+		}
+		
+	</script>  
+	
+	</body>
+</html>
