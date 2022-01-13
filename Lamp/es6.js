@@ -60,3 +60,19 @@ function myBio(firstName, lastName, company) {
   console.log(myBio(['Oluwatobi', 'Sofela', 'CodeSweetly'],...['ko','u']));//Oluwatobi,Sofela,CodeSweetly ko runs u
   console.log(myBio(['Oluwatobi', 'Sofela', 'CodeSweetly'],'ci','dd','pi'));//Oluwatobi,Sofela,CodeSweetly ci runs dd
  console.log(myBio(...['Oluwatobi', 'Sofela', 'CodeSweetly','pi']));//Oluwatobi Sofela runs CodeSweetly - spread operator omits the remaining values.
+ 
+ 
+function myName(){
+     return arguments[0];//ivy
+ }
+ console.log(myName('ivy','sofela'));
+
+
+ var lastName="last name";
+ var obj={
+     "first name":"hema",
+     [lastName]:"jilo"
+ };
+ console.log(obj["first name"]);//hema
+ console.log(obj[lastName]);//jilo
+ console.log(obj["last name"]);//jilo
