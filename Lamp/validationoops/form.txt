@@ -1,0 +1,41 @@
+Form 
+
+Files required:
+HTML file - 1
+CSS file -1
+Js file -1
+
+Fields in the form:
+1.First name
+2.second name
+3.email
+
+js- should use oops concept.
+
+
+Inside the HTML file we create a form accepting 3 field : firstname,lastname and email. 
+to show error messages we use <span> tag.
+
+
+class validation - has two methods 
+  validations():method which is used for validating the data
+  setter():method which is used to create a object and store all the data in that object using setters.
+
+validations(paramter1,paramteter2) - has two parameters inside of it has if conditions throuch we check the validation and return the value.
+
+
+addEventListeners
+- firstname
+-lastname
+-email
+-submit button
+
+whenever user types in the input field using addeventlistener we call the validation function passing the index and the value as the parameter 
+and check whether the value which the user is entering is correct or not if not it will show an error then itself.
+
+when the user clicks the submit button for submitting the form we catch the event using eventlistener and check for 
+validation using the same validation function once it passess the validation we redirect it to another page using form action.
+
+
+
+s
