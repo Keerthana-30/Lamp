@@ -48,3 +48,22 @@ console.log(user2[1].book[0]);
 user2[1].book[2]={1:"A",2:"B"}
 console.log(user2[1]);
 
+let todoList = [];
+function pushAtEnd(num) {
+  todoList.push(num);
+}
+function removeFirst() {
+  return todoList.shift();
+}
+function addFront(task) {
+  todoList.unshift(task);
+}
+pushAtEnd(4)
+pushAtEnd(0)
+pushAtEnd(8)
+console.log(todoList)
+removeFirst()
+console.log(todoList)
+addFront(6)
+addFront(6)
+console.log(todoList)
