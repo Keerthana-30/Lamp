@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>tables</title>
+        <table id="table">
+            <caption>first table</caption>
+        <tr>
+          <td>one</td><td>two</td>
+        </tr>
+        <tr>
+          <td>three</td><td>four</td>
+        </tr>
+      </table>
+      
+      <script>
+         
+        // get td with "two" (first row, second column)
+        let td = table.rows[0].cells[1];
+        td.style.backgroundColor = "red"; // highlight it
+
+      </script>
+    </head>
+
+    <body>
+
+    </body>
+</html>

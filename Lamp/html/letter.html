@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Letter</title>
+        
+       
+    </head>
+    <body>
+        <aside>
+            <strong><i>Dr.Eleanor Gaye</i></strong><br>
+            <i><adress>Awesome Science faulty<br>
+                University of Awesome<br>
+                BObtown,CA 99999,<br>
+                USA<br>
+                <strong>Tel:</strong>123-345-455<br>
+                <strong>Email:</strong>hfuybfw@gmial.com<br>
+               </adress>
+            </i>
+        </aside>
+        <date >20 January 2016</date><br>
+        <i><pre><adress>
+            Miss Eileen Dover
+            4321 Cliff Top Edge
+            BObtown,CA 99999,
+            USA</pre>
+            
+           </adress>
+        </i>
+        <h1>Re:Eileen Dover university aplication</h1>
+        <pre><p>Dear Eileen,
+            jjhmgcjghmgturiogori,togigitg,otigtoigj</p>
+        </pre>
+
+        <script> 
+           console.log(document.body.childNodes);// show the childnodes of body
+           console.log(document.documentElement.parentNode ); // document
+           console.log( document.documentElement.parentElement )//null
+           console.log("parent of body => "+ document.body.parentElement); //htmlELement
+           console.log("parent of body =>"+ document.body.parentNode);//htmlElement
+           for (let node of document.body.childNodes) {
+            console.log(node); // shows all child nodes of the body from the collection
+          }
+          for (let element of document.body.children) {
+            console.log(element); // sNow it shows only elements
+          }
+
+          console.log("using firstchild property "+document.body.firstElementChild);
+          console.log(document.body.children[0]);
+          console.log(document.body.childNodes[1]);//first node is space next is the element
+        </script>
+    </body>
+</html>
