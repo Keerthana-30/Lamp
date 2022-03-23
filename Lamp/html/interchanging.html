@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>swapping</title>
+    </head>
+    <body>
+        <div></div>
+        <p>keerthana</p>
+        <div>hello</div>
+        <script>
+            /*let elem = document.querySelectorAll('div');
+            console.log(elem);
+            console.log(typeof(elem));
+            for(let elements in elem){
+                console.log(elem[elements]);
+            }
+            for(let elements of elem){
+                console.log(elements);
+            }
+
+            let a = document.getElementsByTagName('p')[0];
+            let b=document. querySelectorAll('div')[1];
+            console.log(a);
+            console.log(b)*/
+            
+            // different ways to access first div element
+            console.log(document.body.firstElementChild);
+            console.log(document.querySelectorAll('div')[0]);
+            console.log(document.querySelector('div'));
+            console.log(document.getElementsByTagName('div')[0]);
+            console.log(document.body.childNodes[1]);
+            console.log(document.body.children[0]);
+
+
+            // swapping the content in the p and div tag
+            let con=document.getElementsByTagName('P')[0].textContent;
+            document.getElementsByTagName('P')[0].textContent=document.getElementsByTagName('div')[1].textContent;
+            document.getElementsByTagName('div')[1].textContent=con;
+            
+        </script>
+    </body>
+</html>
