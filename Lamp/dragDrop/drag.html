@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drag and Drop</title>
+        <link rel="stylesheet" href="drag.css">
+    </head>
+    <body>
+        <div class="container">
+          <div draggable="true" class="box" ondragstart="start(event)" id="A_item" >A</div>
+          <div draggable="true" class="box" ondragstart="start(event)" id="B_item">B</div>
+          <div draggable="true" class="box" ondragstart="start(event)" id="B_item">C</div>
+        </div>
+        <div id="place" ondragover="drag(event)" ondrop="dropf(event)" ondragleave="leave(event)">
+        </div>
+        <script src="drag.js"></script>
+    </body>
+</html>
