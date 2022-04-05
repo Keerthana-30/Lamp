@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="characters">
+            <ul class="hobbits">
+              <li>Frodo Baggins</li>
+              <li>Samwise "Sam" Gamgee</li>
+              <li>Meriadoc "Merry" Brandybuck</li>
+              <li>Peregrin "Pippin" Took</li>
+              <li>Bilbo Baggins</li>
+            </ul>
+            <ul class="humans">
+              <li>Gandalf</li>
+              <li>Saruman</li>
+              <li>Aragorn</li>
+              <li>Boromir</li>
+              <li>Faramir</li>
+            </ul>
+            <ul class="elves">
+              <li>Legolas</li>
+              <li>Glorfindel</li>
+              <li>Elrond</li>
+              <li>Arwen Evenstar</li>
+            </ul>
+            <ul class="enemies">
+              <li>Sauron</li>
+              <li>Nazgûl</li>
+            </ul>
+          </div>
+
+          <script>
+              const character = document.querySelector('.characters');
+              const child = character.children;
+              console.log(child);
+
+              const char = document.querySelector('.characters');
+              const firstChild = char.firstElementChild;
+              const secondChild = firstChild.nextElementSibling;
+              console.log(secondChild);
+
+              const cha = document.body.firstElementChild.firstElementChild.nextElementSibling;
+              console.log(cha);
+
+              const charsss = document.querySelector('.characters .humans');
+              console.log(charsss);
+
+              const charss = document.querySelector('.characters>.hobbits+.humans');
+              console.log(charss);
+
+              const charssss = document.querySelector('.characters>.hobbits ~ .humans');
+              console.log(charssss);
+
+
+
+              const human = document.querySelectorAll('.humans')[0];
+              const childs = human.children;
+              console.log(childs);
+
+              const hobits = document.querySelector('.hobbits');
+              const childre = hobits.children;
+              console.log(childre);
+              const maari = hobits.children[2];
+              console.log(maari);
+              
+              const enemy = document.body.firstElementChild.lastElementChild.firstElementChild.parentElement;
+              console.log(enemy);
+              const enemys = document.body.firstElementChild.lastElementChild.lastElementChild.previousElementSibling.parentElement;
+              console.log(enemys);
+
+              const enemies = document.querySelector('.enemies  li + li');
+
+              console.log(enemies.parentElement.parentElement);
+
+              const elvez = document.querySelector('.elves');
+              console.log(elvez.firstElementChild.nextElementSibling.nextElementSibling);
+              console.log(elvez.children[1].previousElementSibling);
+              console.log(elvez.children[1].nextElementSibling.nextElementSibling);
+
+          </script>
+    </body>
+</html>
