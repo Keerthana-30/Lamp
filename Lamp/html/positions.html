@@ -1,0 +1,62 @@
+<!-- relative - It will be in the normal flow of the document
+     the position of the element will move for itself, has lrbt
+    space for that element will be the same 
+
+    absolute - removed form the normal flow of the document
+    does not mind the parent element we can reduce the scope 
+    by using relative in the parent element,will hide when we scroll
+
+    static- default one. in normal flow of the document.
+
+    fixed- removed from the normal flow of the document
+    no space,change will happen in the entire document.
+    when we scroll it will be fixed.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+        
+            border: 2px solid black;
+            width:600px;
+            height:600px;
+            padding:10px;
+            /*position: relative;*/
+        }
+        .one{
+            padding:10px;
+            margin:10px;
+            width:20px;
+            background-color: aqua;
+            position:fixed; 
+            bottom:0px;
+            border: 2px solid black;
+        }
+        .two{
+            padding:10px;
+            margin:10px;
+            background-color:blanchedalmond;
+            border: 2px solid black;
+            
+        }
+        .three{
+            padding:10px;
+            margin:10px;
+            background-color:blueviolet;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+    </div>
+</body>
+</html>
