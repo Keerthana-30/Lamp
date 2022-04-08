@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>tables</title>
+        <style>
+          table,th,td{
+            border:2px solid black;
+            border-collapse: collapse;
+            background-color: aqua;
+            color:black;
+            padding:10px;
+            width:500px;
+            height:100px;
+            text-align: center;
+            border-radius: 50px;
+            border-style: double;
+          }
+         
+          table>caption{
+            padding:10px;
+            font-size: large;
+            font-weight: bold;
+          }
+          
+        </style>
+    </head>
+
+    <body>
+      <table id="table">
+        <caption> First table</caption>
+        <tr>
+          <th>First</th>
+          <th>Second</th>
+          <th>Third</th>
+        </tr>
+        <tr>
+          <td>one</td>
+          <td>two</td>
+          <td>Three</td>
+        </tr>
+        <tr>
+          <td>four</td>
+          <td>five</td>
+          <td>six</td>
+        </tr>
+      </table>
+      <script>
+        // get td with "two" (first row, second column)
+        let td = table.rows[0].cells[1];
+        td.style.backgroundColor = "red"; // highlight i
+      </script>
+    </body>
+</html>
