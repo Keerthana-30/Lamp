@@ -1,9 +1,8 @@
-function greet(name){
-    console.log("hi "+ name);
-}
+// function greet(name1){
+//     name1();
+// }
 
-setTimeout(greet,1000,"keerthana");
-console.log("last");
-
-
-
+// function func(){
+//     console.log("hi");
+// }
+//  greet(func)
