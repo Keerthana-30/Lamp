@@ -1,0 +1,90 @@
+body{
+  /*top and bottom 30px , left and right will be auto*/
+  background-image:url('https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379');
+  background-repeat:no-repeat;/*the background image is not repeated. we aslo have repeat-x,repeat-y,space,round,repeat*/
+  background-size:cover;/* the image will be adjusted to cover the entire screen*/
+}
+u{
+  color:white;/*the text color will be white*/
+}
+.container{
+  text-align:center;/* aligns the texts in the center*/
+  width:500px; /*width of the conatiner*/
+  border-radius:20px;
+  margin:auto;
+  padding:20px;
+  /*border: 20px solid black;*/
+  background: rgba(0, 0, 0, 0.5);
+}
+#forward_button{
+  border:2px solid white;
+  background-color: #2a0845;
+  color: #f0f0f0;/*text color*/
+  font-weight: bold;
+  padding:10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#forward_button:hover{
+  background-color: darkmagenta;
+}
+#forward_button:active{
+  background-color: blueviolet;
+}
+
+.form1{
+  border: 2px solid white;
+  padding: 30px 40px;/*top and bottom 30px left and right 40px*/
+    
+}
+.form-group1{
+ /* border:2px solid black;*/
+  margin:10px;
+  padding:2px;
+}
+.form-group1 label{
+  /*border:2px solid black;*/
+  font-weight:bold;
+  color:white;
+  font-size:17px;
+}
+.form-group1 input{
+  border: 2px solid #f0f0f0;
+  margin:5px;
+  border-radius: 4px;
+  font-size: .8rem;
+  width:90%;
+  padding: 10px;
+}
+.form1 input::placeholder{
+  color: #8134b4;
+}
+/*
+input:valid {
+border: 4px solid rgb(144, 253, 134);
+}
+
+input:invalid:required{
+background-image:linear-gradient(to right, rgb(248, 248, 248), rgb(250, 192, 192));
+border:2px solid rgb(253, 131, 151);
+}*/
+
+span{
+/*border:2px solid black;*/
+display: block;
+padding:2px;
+color:red;
+text-align: left;
+font-weight: bolder;
+font-size: small;
+} 
+
+
+/*
+@media only screen and (max-width : 500px){
+.form1{
+    width: 100%;
+}
+.form-group1 span{
+  font-size: xx-small;
+}}*/

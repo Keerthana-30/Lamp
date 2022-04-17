@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div id="login" class="tabcontent">
+                <u>
+                    <h2>Registration Form</h2>
+                    <hr>
+                </u>
+                <!--form class="form1" id='login_form' action="#"-->
+                <form class="form1" id='login_form' action="index.html" method="post" >
+                    <div class="form-group1">
+                        <label for="email">Email : </label>
+                        <input type="text" placeholder="Enter Email" id="email" name="email" required>
+                        <span class='error' id="error1"></span>
+                    </div>
+                    <div class="form-group1">
+                        <label for="password">Password : </label>
+                        <input type="password" placeholder="Enter password" id="password" name="password" required>
+                        <span class='error' id="error2"></span>
+                    </div>
+                    <div class="form-group1">
+                        <label for="confirmPassword"> ConfirmPassword : </label>
+                        <input type="password" placeholder="Enter ConfirmPassword" id="confirmPassword" name="confirmPassword" required>
+                        <span class="error" id='error3'></span>
+                    </div>
+                    <div class="form-group1">
+                        <label for="firstName"> FirstName :</label>
+                        <input type="text" placeholder="Enter FirstName" id="firstName" name="firstName" required>
+                        <span class="error" id='error4'></span>
+                    </div>
+                    <div class="form-group1">
+                        <label for="lastName"> LastName :</label>
+                        <input type="text" placeholder="Enter LastName" id="lastName" name="lastName">
+                        <span class="error" id='error5'></span>
+                    </div>
+                    <button type="submit" id='forward_button' onclick="formSubmit(event)">Next</button>
+                </form>
+        </div>
+    </div>
+    
+    <script src='validation.js'></script> 
+
+</body>
+
+</html>
