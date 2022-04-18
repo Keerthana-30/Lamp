@@ -183,5 +183,6 @@ function previous(event,stepValue){
 
 
 function submit(event){
-    alert("Thank you for registering")
+    event.preventDefault();
+    alert("Thank you for registering");
 }
