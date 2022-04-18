@@ -44,8 +44,10 @@
                             <input type="text" placeholder="Enter LastName" id="lastName" name="lastName">
                             <span class="error" id='error5'></span>
                         </div>
-                        
-                        <button type="submit" class="forward_button" onclick="next(event,1)">Next</button>
+                        <div class="buttons" >
+                            <button type="submit" class="forward_button" onclick="next(event,1)">Next</button>
+                        </div>
+                   
                     </div>
                     <!-- step2 -->
                     <div class="step" id="step2">
@@ -55,10 +57,13 @@
                             <span class='error' id="error6"></span>
                         </div>
                         <div class="form-group1" > 
-                            <label>Gender: </label> 
-                            <input type="radio" id="male" name="gender" value="male" checked="true"><label for="male">Male </label> 
-                            <input type="radio" id="female" name="gender" value="female"><label for="female">Female </label> 
-                            <input type="radio" id="others" name="gender" value="others"><label for="others">Others </label> 
+                            <div class="flex-container">
+                                <label>Gender: </label> 
+                                <input type="radio" id="male" name="gender" value="male" checked="true"><label for="male">Male </label> 
+                                <input type="radio" id="female" name="gender" value="female"><label for="female">Female </label> 
+                                <input type="radio" id="others" name="gender" value="others"><label for="others">Others </label> 
+                            </div>
+                           
                         </div>
                         <div class="form-group1">
                             <label for="address"> Address: </label>
@@ -79,7 +84,7 @@
                             <input type="tel" placeholder="Enter Mobile Number" id="mobileNumber" name="mobileNumber">
                             <span class="error" id='error7'></span>
                         </div>
-                        <div id="buttons">
+                        <div class="buttons">
                             <button type="submit" class='previous_button' onclick="previous(event,2)">Previous</button>
                             <button type="submit" class='forward_button' onclick="next(event,2)">Next</button>
                         </div>
@@ -88,9 +93,12 @@
                     <!-- step3 -->
                     <div class="step" id="step3">
                         <div class="form-group1">
-                            <label for="occupation">Occupation : </label>
-                            <input type="radio" id="yes" name="occupation" value="yes">Yes
-                            <input type="radio" id="no" name="occupation" value="no" >No
+                            <div class="flex-container">
+                                <label for="occupation">Occupation: </label>
+                                <input type="radio" id="yes" name="occupation" value="yes"><label>Yes</label>
+                                <input type="radio" id="no" name="occupation" value="no" checked ><label>No</label>
+                            </div>
+                            
                         </div>
                         
                         <div class="form-group1">
@@ -99,7 +107,7 @@
                            
                         </div>
                       
-                        <div id="buttons">
+                        <div class="buttons">
                             <button type="submit" class='previous_button' onclick="previous(event,3)">Previous</button>
                             <button type="submit" class='forward_button' onclick="next(event,3)">Next</button>
                         </div>
@@ -121,7 +129,7 @@
                           
                         </div>
                       
-                        <div id="buttons">
+                        <div class="buttons">
                             <button type="submit" class='previous_button' onclick="previous(event,4)">Previous</button>
                         
                             <button type="submit" class='forward_button' onclick="next(event,4)">Next</button>
@@ -139,16 +147,14 @@
                         </div>
                         
                         <div class="form-group1">
-                            <div class="hori">
+                            <div class="flex-container">
                                 <input type="checkbox" id="terms" name="terms" value="yes" checked> 
                                 <label>I accept the terms and conditions</label>
-                            </div>
-                            
+                            </div>   
                         </div>
                       
-                        <div id="buttons">
+                        <div class="buttons">
                             <button type="submit" class='previous_button' onclick="previous(event,5)">Previous</button>
-                        
                             <button type="submit" class='previous_button' onclick="submit(event)">Submit</button>
                         </div>
                     </div> 

@@ -3,85 +3,79 @@ body{
     background-image:url('https://gallery.yopriceville.com/var/albums/Backgrounds/Coffee_Beans_Background-727176932.jpg?m=1459816379');
     background-repeat:no-repeat;/*the background image is not repeated. we aslo have repeat-x,repeat-y,space,round,repeat*/
     background-size:cover;/* the image will be adjusted to cover the entire screen*/
-  
-  }
-  u{
-    color:white;/*the text color will be white*/
-  }
-  .container{
-    text-align:center;/* aligns the texts in the center*/
-    width:500px; /*width of the conatiner*/
-    border-radius:20px;
-    margin:auto;
-    padding:20px;
-    /*border: 20px solid black;*/
-    background: rgba(0, 0, 0, 0.5);
-    min-height: 600px; 
-    
-  }
-  .form1{
-    border: 2px solid white;
-    min-height: 500px; 
-    /* padding: 30px 40px;/*top and bottom 30px left and right 40px*/    
-    position: relative;
-    display: flex;
-    justify-content:space-around;
-    
-  }
-  .form-group1{
-    border:2px solid black;
-    margin:10px;
-    padding:2px;
-  }
-  .form-group1 label{
-    /*border:2px solid black;*/
-    font-weight:bold;
-    color:white;
-    font-size:17px;
-  }
-  .form-group1 input , .form-group1 textarea, .form-group1 select{
-    border: 2px solid #f0f0f0;
-    margin:5px;
-    border-radius: 4px;
-    font-size: .8rem;
-    width:90%;
-    padding: 10px;
-    resize: none;
-  }
-
-  .form1 input::placeholder{
-    color: #8134b4;
-  }
-  
-.hori{
-    /* border: 2px solid #f0f0f0; */
-    display: flex;
 }
- #terms{
-     /* flex-shrink: 50; */
-     border: 2px solid #f0f0f0;
-     
- }
- .hori label{
-     /* border: 2px solid #f0f0f0; */
- }
- 
-  .forward_button,.previous_button{
-    border:2px solid white;
-    background-color: #2a0845;
-    color: #f0f0f0;/*text color*/
-    font-weight: bold;
-    padding:10px;
-    border-radius: 2px;
-    margin-top: 10px;
-  }
-  .forward_button:hover,.previous_button:hover{
-    background-color: darkmagenta;
-  }
-  .forward_button:active,.previous_button:active{
-    background-color: blueviolet;
-  }
-  
+u{
+  color:white;/*the text color will be white*/
+}
+.container{
+  text-align:center;/* aligns the texts in the center*/
+  width:500px; /*width of the conatiner*/
+  border-radius:20px;
+  margin:auto;
+  padding:20px;
+  /*border: 20px solid black;*/
+  background: rgba(0, 0, 0, 0.5);
+  height: 700px; 
+}
+.form1{
+  border: 2px solid white;
+  height: 600px; 
+  /* padding: 10px 10px;/*top and bottom 30px left and right 40px*/    
+  position: relative; 
+  display: flex;
+  justify-content:space-around; 
+}
+.form-group1,.buttons{
+  /* border:2px solid black; */
+  margin:10px;
+  padding:2px;
+}
+.form-group1 label{
+  /*border:2px solid black;*/
+  font-weight:bold;
+  color:white;
+  font-size:17px;
+}
+.form-group1 input , .form-group1 textarea, .form-group1 select{
+  border: 2px solid #f0f0f0;
+  margin:5px;
+  border-radius: 4px;
+  font-size: .8rem;
+  width:90%;
+  padding: 10px;
+}
+.form1 input::placeholder{
+  color: #8134b4;
+}
+#step1 .buttons{
+  justify-content: end;
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.forward_button,.previous_button{
+  border:1px solid white;
+  background-color: #2a0845;
+  color: #f0f0f0;/*text color*/
+  font-weight: bold;
+  padding:10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.forward_button:hover,.previous_button:hover{
+  background-color: darkmagenta;
+}
+.forward_button:active,.previous_button:active{
+  background-color: blueviolet;
+}
+.flex-container{
+  padding:2px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border:2px solid black; */
+}
   
   /*
   input:valid {
@@ -92,15 +86,15 @@ body{
   border:2px solid rgb(253, 131, 151);
   }*/
   
-  .step{
-      position: absolute;
-      display: none;
-  }
-  .active{
-      position: absolute;
-      display: block;
-  }
-  span{
+.step{
+  position: absolute;
+  display: none;
+}
+.active{
+  position: absolute;
+  display: block;
+}
+span{
   /*border:2px solid black;*/
   display: block;
   padding:2px;
@@ -108,7 +102,7 @@ body{
   text-align: left;
   font-weight: bolder;
   font-size: small;
-  } 
+} 
   
   
   /*
