@@ -10,37 +10,44 @@
 </head>
 
 <body>
+   
     <div class="container">
-        <div id="login" class="tabcontent">
+        <h1 id="final">Thank you for registering !!</h1>
+        <div  class="tabcontent">
+           
                 <u>
                     <h2>Registration Form</h2>
                     <hr>
                 </u>
                 <!--form class="form1" id='login_form' action="#"-->
-                <form class="form1" id='login_form' >
+                <form class="form1" >
                     <div class="step active" id="step1">
+                        <u>
+                            <h3>Basic Info</h3>
+                            <hr>
+                        </u>
                         <div class="form-group1">
-                            <label for="email">Email : </label>
+                            <label for="email">Email *</label>
                             <input type="text" placeholder="Enter Email" id="email" name="email" required>
                             <span class='error' id="error1"></span>
                         </div>
                         <div class="form-group1">
-                            <label for="password">Password : </label>
+                            <label for="password">Password * </label>
                             <input type="password" placeholder="Enter password" id="password" name="password" required>
                             <span class='error' id="error2"></span>
                         </div>
                         <div class="form-group1">
-                            <label for="confirmPassword"> ConfirmPassword : </label>
+                            <label for="confirmPassword"> ConfirmPassword *</label>
                             <input type="password" placeholder="Enter ConfirmPassword" id="confirmPassword" name="confirmPassword" required>
                             <span class="error" id='error3'></span>
                         </div>
                         <div class="form-group1">
-                            <label for="firstName"> FirstName :</label>
+                            <label for="firstName">FirstName *</label>
                             <input type="text" placeholder="Enter FirstName" id="firstName" name="firstName" required>
                             <span class="error" id='error4'></span>
                         </div>
                         <div class="form-group1">
-                            <label for="lastName"> LastName :</label>
+                            <label for="lastName"> LastName </label>
                             <input type="text" placeholder="Enter LastName" id="lastName" name="lastName">
                             <span class="error" id='error5'></span>
                         </div>
@@ -51,14 +58,18 @@
                     </div>
                     <!-- step2 -->
                     <div class="step" id="step2">
+                        <u>
+                            <h3>Others</h3>
+                            <hr>
+                        </u>
                         <div class="form-group1">
-                            <label for="dob">DOB : </label>
+                            <label for="dob">DOB * </label>
                             <input type="date" placeholder="Enter Date of Birth" id="dob" name="dob" required>
                             <span class='error' id="error6"></span>
                         </div>
                         <div class="form-group1" > 
                             <div class="flex-container">
-                                <label>Gender: </label> 
+                                <label>Gender * </label> 
                                 <input type="radio" id="male" name="gender" value="male" checked="true"><label for="male">Male </label> 
                                 <input type="radio" id="female" name="gender" value="female"><label for="female">Female </label> 
                                 <input type="radio" id="others" name="gender" value="others"><label for="others">Others </label> 
@@ -66,13 +77,13 @@
                            
                         </div>
                         <div class="form-group1">
-                            <label for="address"> Address: </label>
+                            <label for="address"> Address </label>
                             <textarea id="address" name="address" ></textarea>
                         </div>
                         <div class="form-group1">
-                            <label for="state"> State :</label>
+                            <label for="state"> State *</label>
                             <select required>
-                                <option value="">Choose state</option>
+                                <option value="">Choose state:</option>
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Delhi">Delhi</option>
                                 <option value="Orisa">Orrisa</option>
@@ -80,7 +91,7 @@
                             </select>
                         </div>
                         <div class="form-group1">
-                            <label for="mobileNumber"> Mobile Number :</label>
+                            <label for="mobileNumber"> Mobile Number *</label>
                             <input type="tel" placeholder="Enter Mobile Number" id="mobileNumber" name="mobileNumber">
                             <span class="error" id='error7'></span>
                         </div>
@@ -92,18 +103,22 @@
                     </div>
                     <!-- step3 -->
                     <div class="step" id="step3">
+                        <u>
+                            <h3>Work</h3>
+                            <hr>
+                        </u>
                         <div class="form-group1">
                             <div class="flex-container">
-                                <label for="occupation">Occupation: </label>
-                                <input type="radio" id="yes" name="occupation" value="yes"><label>Yes</label>
-                                <input type="radio" id="no" name="occupation" value="no" checked ><label>No</label>
+                                <label for="occupation">Occupation </label>
+                                <input type="radio" id="yes" name="occupation" value="yes"><label for="yes">Yes</label>
+                                <input type="radio" id="no" name="occupation" value="no"><label for="no">No</label>
                             </div>
                             
                         </div>
                         
                         <div class="form-group1">
-                            <label for="yoe">Years of Experience: </label>
-                            <input type="text" placeholder="Enter Year of Experience" id="yoe" name="yoe">
+                            <label for="yoe">Years of Experience </label>
+                            <input type="text" placeholder="Eg :7 years" id="yoe" name="yoe" >
                            
                         </div>
                       
@@ -114,19 +129,24 @@
                     </div>
                     <!-- step4 -->
                     <div class="step" id="step4">
+                        <u>
+                            <h3>Education</h3>
+                            <hr>
+                        </u>
                         <div class="form-group1">
-                            <label for="education"> Education:</label>
+                            <label for="education">Education *</label>
                             <select name="education" id="education">
-                                <option value="engineering">Engineering</option>
+                                <option value="engineering">PG</option>
+                                <option value="engineering">UG</option>
+                                <option value="engineering">HSC</option>
+                                <option value="engineering">SSLC</option>
                                 <option value="diploma">Diploma</option>
-                                <option value="arts and science">arts and science</option>
                             </select>
                         </div>
                         
                         <div class="form-group1">
-                            <label for="yog">Year of Graduation: </label>
-                            <input type="text" placeholder="Enter Year of Graduation" id="yog" name="yog" required>
-                          
+                            <label for="yog">Year of Graduation * </label>
+                            <input type="month" placeholder="Enter Year of Graduation" id="yog" name="yog" required> 
                         </div>
                       
                         <div class="buttons">
@@ -137,33 +157,32 @@
                     </div>  
                     <!-- step5 -->
                     <div class="step" id="step5">
+                        <u>
+                            <h3>Team</h3>
+                            <hr>
+                        </u>
                         <div class="form-group1">
-                            <label for="department"> Department:</label>
+                            <label for="department">Department *</label>
                             <select name="department" id="department">
-                                <option value="ece">Electronics and Communication</option>
-                                <option value="eee">Electrical and Electronics</option>
-                                <option value="cse">Computer Science</option>
+                                <option value="lamp">LAMP</option>
+                                <option value="bfs">BFS</option>
+                                <option value="java">Java</option>
+                                <option value="oracle">Oracle</option>
                             </select>
                         </div>
                         
                         <div class="form-group1">
                             <div class="flex-container">
                                 <input type="checkbox" id="terms" name="terms" value="yes" checked> 
-                                <label>I accept the terms and conditions</label>
+                                <label>I accept the terms and conditions *</label>
                             </div>   
                         </div>
                       
                         <div class="buttons">
                             <button type="submit" class='previous_button' onclick="previous(event,5)">Previous</button>
-                            <button type="submit" class='previous_button' onclick="submit(event)">Submit</button>
+                            <button class='previous_button' onclick="submitForm()">Submit</button>
                         </div>
-                    </div> 
-                    <!-- step6 -->
-                    <div class="step" id="step6">
-                        <div class="form-group1">
-                            <p>Thank you for registering</p>
-                        </div>
-                    </div> 
+                    </div>  
                 </form>
         </div>
     </div>
