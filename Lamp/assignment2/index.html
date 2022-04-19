@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+   
+    <div class="container">
+        <h1 id="final">Thank you for registering !!</h1>
+        <div  class="tabcontent">
+           
+                <u>
+                    <h2>Registration Form</h2>
+                    <hr>
+                </u>
+                <!--form class="form1" id='login_form' action="#"-->
+                <form class="form1" >
+                    <div class="step active" id="step1">
+                        <u>
+                            <h3>Basic Info</h3>
+                            <hr>
+                        </u>
+                        <div class="form-group1">
+                            <label for="email">Email *</label>
+                            <input type="text" placeholder="Enter Email" id="email" name="email" required>
+                            <span class='error' id="error1"></span>
+                        </div>
+                        <div class="form-group1">
+                            <label for="password">Password * </label>
+                            <input type="password" placeholder="Enter password" id="password" name="password" required>
+                            <span class='error' id="error2"></span>
+                        </div>
+                        <div class="form-group1">
+                            <label for="confirmPassword"> ConfirmPassword *</label>
+                            <input type="password" placeholder="Enter ConfirmPassword" id="confirmPassword" name="confirmPassword" required>
+                            <span class="error" id='error3'></span>
+                        </div>
+                        <div class="form-group1">
+                            <label for="firstName">FirstName *</label>
+                            <input type="text" placeholder="Enter FirstName" id="firstName" name="firstName" required>
+                            <span class="error" id='error4'></span>
+                        </div>
+                        <div class="form-group1">
+                            <label for="lastName"> LastName </label>
+                            <input type="text" placeholder="Enter LastName" id="lastName" name="lastName">
+                            <!-- <span class="error" id='error5'></span> -->
+                        </div>
+                        <div class="buttons" >
+                            <button type="submit" class="forward_button" onclick="next(event,1)">Next</button>
+                        </div>
+                   
+                    </div>
+                    <!-- step2 -->
+                    <div class="step" id="step2">
+                        <u>
+                            <h3>Others</h3>
+                            <hr>
+                        </u>
+                        <div class="form-group1">
+                            <label for="dob">DOB * </label>
+                            <input type="date" placeholder="Enter Date of Birth" id="dob" name="dob" required>
+                            <span class='error' id="error5"></span>
+                        </div>
+                        <div class="form-group1" > 
+                            <div class="flex-container">
+                                <label>Gender*</label> 
+                                <input type="radio" id="male" name="gender" value="male" checked="true"><label for="male">Male </label> 
+                                <input type="radio" id="female" name="gender" value="female"><label for="female">Female </label> 
+                                <input type="radio" id="others" name="gender" value="others"><label for="others">Others </label> 
+                            </div>
+                           
+                        </div>
+                        <div class="form-group1">
+                            <label for="address"> Address </label>
+                            <textarea id="address" name="address" ></textarea>
+                        </div>
+                        <div class="form-group1">
+                            <label for="state"> State *</label>
+                            <select required>
+                                <option value="">Choose state:</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Orisa">Orrisa</option>
+                                <option value="Kerala">Kerala</option>
+                            </select>
+                        </div>
+                        <div class="form-group1">
+                            <label for="mobileNumber"> Mobile Number *</label>
+                            <input type="tel" placeholder="Enter Mobile Number" id="mobileNumber" name="mobileNumber">
+                            <span class="error" id='error6'></span>
+                        </div>
+                        <div class="buttons">
+                            <button type="submit" class='previous_button' onclick="previous(event,2)">Previous</button>
+                            <button type="submit" class='forward_button' onclick="next(event,2)">Next</button>
+                        </div>
+                        
+                    </div>
+                    <!-- step3 -->
+                    <div class="step" id="step3">
+                        <u>
+                            <h3>Work</h3>
+                            <hr>
+                        </u>
+                        <div class="form-group1">
+                            <div class="flex-container">
+                                <label for="occupation">Occupation </label>
+                                <input type="radio" id="yes" name="occupation" value="yes"><label for="yes">Yes</label>
+                                <input type="radio" id="no" name="occupation" value="no"><label for="no">No</label>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-group1">
+                            <label for="yoe">Years of Experience </label>
+                            <input type="text" placeholder="Eg :7 years" id="yoe" name="yoe" >
+                           
+                        </div>
+                      
+                        <div class="buttons">
+                            <button type="submit" class='previous_button' onclick="previous(event,3)">Previous</button>
+                            <button type="submit" class='forward_button' onclick="next(event,3)">Next</button>
+                        </div>
+                    </div>
+                    <!-- step4 -->
+                    <div class="step" id="step4">
+                        <u>
+                            <h3>Education</h3>
+                            <hr>
+                        </u>
+                        <div class="form-group1">
+                            <label for="education">Education *</label>
+                            <select name="education" id="education">
+                                <option value="engineering">PG</option>
+                                <option value="engineering">UG</option>
+                                <option value="engineering">HSC</option>
+                                <option value="engineering">SSLC</option>
+                                <option value="diploma">Diploma</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group1">
+                            <label for="yog">Year of Graduation * </label>
+                            <input type="month" placeholder="Enter Year of Graduation" id="yog" name="yog" required> 
+                        </div>
+                      
+                        <div class="buttons">
+                            <button type="submit" class='previous_button' onclick="previous(event,4)">Previous</button>
+                        
+                            <button type="submit" class='forward_button' onclick="next(event,4)">Next</button>
+                        </div>
+                    </div>  
+                    <!-- step5 -->
+                    <div class="step" id="step5">
+                        <u>
+                            <h3>Team</h3>
+                            <hr>
+                        </u>
+                        <div class="form-group1">
+                            <label for="department">Department *</label>
+                            <select name="department" id="department">
+                                <option value="lamp">LAMP</option>
+                                <option value="bfs">BFS</option>
+                                <option value="java">Java</option>
+                                <option value="oracle">Oracle</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group1">
+                            <div class="flex-container">
+                                <input type="checkbox" id="terms" name="terms" value="yes" checked> 
+                                <label>I accept the terms and conditions</label>
+                            </div>   
+                        </div>
+                      
+                        <div class="buttons">
+                            <button type="submit" class='previous_button' onclick="previous(event,5)">Previous</button>
+                            <button class='previous_button' onclick="submitForm()">Submit</button>
+                        </div>
+                    </div>  
+                </form>
+        </div>
+    </div>
+    
+    <script src='valid.js'></script> 
+
+</body>
+
+</html>
