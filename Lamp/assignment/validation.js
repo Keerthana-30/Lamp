@@ -1,4 +1,5 @@
 function validations(index, value) {
+   return 1;
     //name validation
     if (index === 4 ) {
         const regExpName = /^[a-zA-Z]+$/;
@@ -34,7 +35,7 @@ function validations(index, value) {
     else if(index===2) {
        const regExp=/^[a-zA-Z0-9]{6,10}$/;
         if(value===""){
-            document.getElementById('error2').textContent = "*Please fill out the field";
+            document.getElementById('error2').textContent = "* Please fill out the field";
         }
        else if(!(regExp.test(value))){
             document.getElementById('error2').textContent="* Password should contain atleast 6 character";
@@ -47,7 +48,7 @@ function validations(index, value) {
     //confirm password
     else if(index==3){
         if(value ===""){
-            document.getElementById('error3').textContent = "*Please fill out the field";
+            document.getElementById('error3').textContent = "* Please fill out the field";
         }
         else if(value === password.value){
             document.getElementById('error3').textContent = "";
@@ -60,7 +61,7 @@ function validations(index, value) {
     //dob validation
     else if(index ==6){
         if(value ===""){
-            document.getElementById('error6').textContent = "*Please fill out the field";
+            document.getElementById('error6').textContent = "* Please fill out the field";
         }
         else {
             var dob = new Date(value);
@@ -98,7 +99,7 @@ function validations(index, value) {
     }
 }
 
-var form = document.getElementById('login_form');
+
 var button = document.getElementById('submit_button');
 var email = document.getElementById('email');
 
@@ -121,7 +122,6 @@ cpassword.addEventListener('input',()=>{
     validations(3,cpassword.value);
 })
 firstName.addEventListener('input', () => {
-
     validations(4, firstName.value);
 })
 lastName.addEventListener('input', () => {
@@ -141,48 +141,48 @@ function step1(event){
     var cpassword1 = validations(3,cpassword.value);
     var firstName1 = validations(4,firstName.value);
     var lastName1 = validations(5,lastName.value);
-    if(email1 && password1 && cpassword1 && firstName1){
+    if(email1 && password1 && cpassword1 && firstName1) {
         return 1;
     }
 }
 
-function step2(event){
+function step2(event) {
     var dob1 =validations(6,dob.value);
     var mob1 = validations(7,mob.value);
    // alert(dob1+mob1);
-    if(dob1 && mob1){
+    if(dob1 && mob1) {
         return 1;
     }
 }
 function next(event,stepValue){
     event.preventDefault();
-    if(stepValue==1){
-        if(step1(event)){
+    if(stepValue==1) {
+        if(step1(event)) {
             document.getElementById('step'+stepValue).style.display="none";
             document.getElementById('step'+(stepValue+1)).style.display="block";
         }
     }
-    else if(stepValue==2){
-        if(step2(event)){
+    else if(stepValue==2) {
+        if(step2(event)) {
             document.getElementById('step'+stepValue).style.display="none";
             document.getElementById('step'+(stepValue+1)).style.display="block";
-
         }
     }
     else{
         document.getElementById('step'+stepValue).style.display="none";
             document.getElementById('step'+(stepValue+1)).style.display="block";
-
     }
 }
-function previous(event,stepValue){
+function previous(event,stepValue) {
     event.preventDefault();
+   
     document.getElementById('step'+stepValue).style.display="none";
     document.getElementById('step'+(stepValue-1)).style.display="block";
 }
-
-
-function submit(event){
-    event.preventDefault();
-    alert("Thank you for registering");
+function submitForm() {
+  document.getElementsByClassName('tabcontent')[0].style.display="none";
+  document.getElementById('final').style.display="block";
 }
+
+
+
