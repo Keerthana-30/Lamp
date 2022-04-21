@@ -64,18 +64,3 @@
 # for i in range(9)[::-1]:
 #     print(i)
 
-# for i in range(-10,0,3):
-#      print(i)
-
-# prints the else block after the completion of iteration 
-# if we give break else wont be printed
-# for i in "hello":
-#     print(i)
-#     break
-# else:
-#     print("else block")
-
-
-# l1 = [12,32,4,42,9089,565]
-# print(max(l1),min(l1),sum(l1))
-
