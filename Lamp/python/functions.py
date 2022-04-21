@@ -46,3 +46,13 @@
 #      print(arg)                
 # i = 6             #After i changes value to 6, arg is already 5 so it doesn't change.
 # f()
+
+# ** - used for keyword arguments
+# * - used for positonal arguments
+# def animal(name,*ques,**kwarg):
+#     print("Animal name is {}.\n{a} \n{b}".format(name,b=ques[1],a=ques[0],))
+#     print(kwarg)
+#     print("Answer: %s %s"%(kwarg['ans1'],kwarg['fly']))
+    
+
+# animal('monkey','is it a wild animal?','does it fly?',ans1='yes, its wild a animal',fly="no,it doesnt")
