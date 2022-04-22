@@ -56,3 +56,22 @@
     
 
 # animal('monkey','is it a wild animal?','does it fly?',ans1='yes, its wild a animal',fly="no,it doesnt")
+
+# positional arguments only
+# def bird(args,/):
+#     print(args)
+# bird('peacock')
+# bird(args="hen") #TypeError: bird() got some positional-only arguments passed as keyword arguments: 'args'
+
+
+# keyword arguments only
+# def bird(*,args):
+#     print(args)
+# bird(args="hen") 
+# bird('peacock') #TypeError: bird() takes 0 positional arguments but 1 was given
+
+
+#After *poslist the arguments should be keyword arguments and after keyword arguments positional should not come
+# def arguments(pos,/,*poslist,kwargw):
+#     print(pos,poslist,kwargw)
+# arguments('hi','bye','kiki','eo',kwargw="foij") #hi ('bye', 'kiki', 'eo') foij
