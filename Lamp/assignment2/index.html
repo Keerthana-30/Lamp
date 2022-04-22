@@ -82,13 +82,14 @@
                         </div>
                         <div class="form-group1">
                             <label for="state"> State *</label>
-                            <select required>
+                            <select id="state" >
                                 <option value="">Choose state:</option>
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Delhi">Delhi</option>
                                 <option value="Orisa">Orrisa</option>
                                 <option value="Kerala">Kerala</option>
                             </select>
+                            <span class="error" id='error7'></span>
                         </div>
                         <div class="form-group1">
                             <label for="mobileNumber"> Mobile Number *</label>
@@ -136,17 +137,20 @@
                         <div class="form-group1">
                             <label for="education">Education *</label>
                             <select name="education" id="education">
-                                <option value="engineering">PG</option>
-                                <option value="engineering">UG</option>
-                                <option value="engineering">HSC</option>
-                                <option value="engineering">SSLC</option>
+                                <option value="">Choose</option>
+                                <option value="pg">PG</option>
+                                <option value="ug">UG</option>
+                                <option value="hsc">HSC</option>
+                                <option value="sslc">SSLC</option>
                                 <option value="diploma">Diploma</option>
                             </select>
+                            <span class="error" id='error8'></span>
                         </div>
                         
                         <div class="form-group1">
                             <label for="yog">Year of Graduation * </label>
-                            <input type="month" placeholder="Enter Year of Graduation" id="yog" name="yog" required> 
+                            <input type="month" placeholder="Enter Year of Graduation" id="yog" name="yog"> 
+                            <span class="error" id='error9'></span>
                         </div>
                       
                         <div class="buttons">
@@ -163,12 +167,14 @@
                         </u>
                         <div class="form-group1">
                             <label for="department">Department *</label>
-                            <select name="department" id="department">
+                            <select name="department" id="dep">
+                                <option value="">Choose</option>
                                 <option value="lamp">LAMP</option>
                                 <option value="bfs">BFS</option>
                                 <option value="java">Java</option>
                                 <option value="oracle">Oracle</option>
                             </select>
+                            <span class="error" id='error10'></span>
                         </div>
                         
                         <div class="form-group1">
