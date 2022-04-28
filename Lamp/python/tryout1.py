@@ -64,3 +64,7 @@
 # for i in range(9)[::-1]:
 #     print(i)
 
+# t=("ji",[1,2,3,4])
+# print(t[1][0])
+# t[1][2]="hi"
+# print(t)
