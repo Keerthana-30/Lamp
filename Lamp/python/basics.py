@@ -1,5 +1,16 @@
 # print(print.__doc__)
 
+# def outer():
+#     x = "local"
+#     def inner():
+#         # print(x) #local
+#         x="changing value"
+#         print(x) #changing value
+#     inner()
+#     print(x)#local
+# outer()
+
+
 # x="global"
 # def a():
 #     x="inside a"
