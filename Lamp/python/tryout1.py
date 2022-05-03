@@ -68,3 +68,10 @@
 # print(t[1][0])
 # t[1][2]="hi"
 # print(t)
+
+
+
+# n = int(input())
+# l = set(map(int,input().split()))
+# print(list(sorted(l))[-2]) 
+   
