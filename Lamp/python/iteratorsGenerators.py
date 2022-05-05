@@ -53,21 +53,21 @@
 
 
 # Generators
-# def generators():
-#     yield 10
-#     yield 12
-#     for i in range(10):
-#         yield i
+def generators():
+    yield 10
+    yield 12
+    for i in range(10):
+        yield i
 
-# print(generators())
-# ge = generators()
-# print(ge)
-# print(next(ge))
-# print(next(ge))
-# print(next(ge))
-# print(next(ge))
-# for j in ge:
-#     print(j)
+print(generators())
+ge = generators()
+print(ge)
+print(next(ge))
+print(next(ge))
+print(next(ge))
+print(next(ge))
+for j in ge:
+     print(j)
 
 # generator expressions
 # gen = (i for i in range(10))
