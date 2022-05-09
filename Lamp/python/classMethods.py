@@ -23,7 +23,9 @@ class Student:
     @staticmethod
     def find_notes(subject_name):
         # can't access instance or class attributes
-        return ['chapter 1', 'chapter 2', 'chapter 3']
+        print(Student.school_name)
+        Student.change_School('joe')
+        return ['chapter 1', 'chapter 2', 'chapter 3',subject_name]
 
 # create object
 jessa = Student('Jessa', 12)
@@ -33,3 +35,5 @@ jessa.show()
 # call class method
 Student.change_School('XYZ School')
 print(jessa.school_name)
+
+print(Student.find_notes("english"))

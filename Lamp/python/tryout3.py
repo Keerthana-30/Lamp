@@ -1,5 +1,5 @@
 import functools
-from http.client import CONTINUE
+
 # s = "This is Keerthana"
 # print(s.split(" "))
 
@@ -56,7 +56,7 @@ print(len(list(filter(lambda list_arg: all(marks>=30 for marks in list_arg["mark
 print()
 
 print("Sundar's 4th subject mark:")
-print(list((filter(lambda x: print(x["marks"][3]) if x['name']=='sundar' else None , list1))))
+print(list((filter(lambda x: x['name']=='sundar', list1)))[0]['marks'][3])
 print()
 
 print("2nd subject mark of the student whose father name is \"Rajeev\" :")
@@ -69,7 +69,15 @@ print([i['name'] for i in data])
 print()
 
 
+l=[]
+print("Display students name whose father names are same :")
+for i in range(0,len(list1)):
+    for j in range(i+1,len(list1)):
+        if(list1[i]['parents_details']['father_name']==list1[j]['parents_details']['father_name']):
+            l.append(list1[i]['name'])
+            l.append(list1[j]['name'])
 
+print(*set(l),sep='\n')
 
 
 print("the student from the array who got less than 30 in the second subject:")
