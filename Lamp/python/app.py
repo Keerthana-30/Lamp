@@ -70,9 +70,14 @@ class Admin(Product,Display):
                 print("ID doesn't exist\n")
 
 
+class CartFunction:
+    def cart(self,customer_list):
+        print("------------\nCart Details\n------------")
+        for i in customer_list:
+            print(customer_list.count(i))
+            
 
-
-class User(Display):
+class User(Display,CartFunction):
     def __init__(self):
         self.customer_list=[]
 
@@ -91,9 +96,8 @@ class User(Display):
                         customer_list=self.add_product()
                         nav = int(input("1.Go to cart page\n2.Explore\n"))
                         if(nav==1):
-                            # cart()
+                            super().cart(customer_list)
                             print(customer_list)
-                            pass
                         else:
                             break
                     elif action==2:
