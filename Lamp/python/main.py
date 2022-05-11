@@ -63,17 +63,33 @@ def explore():
                 elif operation==2:
                     if (delete(customer_list)):
                         break
-        
+
+def payment():
+    print("Choose payment method:")
+    pay=int(input("1. Credit/Debit Card\n2. Net Banking\n3. Gpay\n4. PhonePay\n5. Paytm\n6. COD\n"))
+    if(pay==1):
+        print("Credit/Debit card")
+        cardNo=int(input("ENter the card Number:"))
+        cvv=int(input("Enter the CVV:"))
+    elif pay==6:
+        print("Order placed")
+        return 1
+    else:
+        print("Please enter a correct option")
+
+
+
 def cart():
-    print("Cart Details\n------------")
-    print("{:10} {:10} {:10} ".format("ID","Name","Cost"))
+    print("------------\nCart Details\n------------")
+    print("{0:10} {1:10} {2:10} ".format("ID","Name","Cost"))
     for i in customer_list:
-        print("{:10} {:10} {:10}".format(i['id'],i["name"],i["cost"]))
+        print("{0:1} {1:10} {2:10}".format(i['id'],i["name"],i["cost"]))
         print()
     while(True):
         value=int(input("Choose option:\n1.Pay\n2.Explore\n3.Delete Item\n"))
         if(value==1):
-            pass
+            if (payment()):
+                break
         elif (value==2):
             explore()
         elif (value==3):
@@ -142,6 +158,8 @@ while(True):
                         add('','resolution','screen size',category='tv')
                     elif category==0:
                         break
+                    else:
+                        print("Please choose the correct option")
                 elif choice==2:
                     display(product)
                     delete(product)
