@@ -75,3 +75,5 @@
 # def arguments(pos,/,*poslist,kwargw):
 #     print(pos,poslist,kwargw)
 # arguments('hi','bye','kiki','eo',kwargw="foij") #hi ('bye', 'kiki', 'eo') foij
+
+

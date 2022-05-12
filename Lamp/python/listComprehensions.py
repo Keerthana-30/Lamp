@@ -1,5 +1,3 @@
-from re import T
-
 
 print((lambda x:x+1)(int(input())))
 

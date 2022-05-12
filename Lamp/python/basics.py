@@ -6,6 +6,7 @@ def outer():
         # print(x) #local
         x="changing value"
         print(x) #changing value
+        print(x)
     inner()
     print(x)#local
 outer()

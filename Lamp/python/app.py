@@ -1,7 +1,7 @@
 class Product():
-    products_list=[{'ID': 1,'Name': "Iphone 11",'Product_details': {'RAM': "2 GB",'Processor': "snapdragon",'Screensize': "4 inch"},'cost': "50000",'Currency': "INR",'Category': "Mobile",'Colour': "black"},
-           {'ID': 2,'Name': "Samsung Galaxy",'Product_details': {'RAM': "2 GB",'Processor': "snapdragon",'Screensize': "4 inch"},'cost': "45000",'Currency': "INR",'Category': "Mobile",'Colour': "grey"},
-           {'ID': 3,'Name': "Washing Machine",'Product_details': {'MachineCapacity': "6kg",'RPM': "50",'Machinetype': "top_load"},'cost': "25000",'Currency': "INR",'Category': "Washing machine",'Colour': "blue"},
+    products_list=[{'ID': 1,'Name': "Iphone 11",'Product_details': {'RAM': "2 GB",'Processor': "snapdragon",'Screensize': "4 inch"},'Cost': 50000,'Currency': "INR",'Category': "Mobile",'Colour': "black"},
+           {'ID': 2,'Name': "Samsung Galaxy",'Product_details': {'RAM': "2 GB",'Processor': "snapdragon",'Screensize': "4 inch"},'Cost': 45000,'Currency': "INR",'Category': "Mobile",'Colour': "grey"},
+           {'ID': 3,'Name': "Washing Machine",'Product_details': {'MachineCapacity': "6kg",'RPM': "50",'Machinetype': "top_load"},'Cost': 25000,'Currency': "INR",'Category': "Washing machine",'Colour': "blue"},
            ]
     def __init__(self,id,name,cost,currency,category,color):
         self.id=id
@@ -29,7 +29,6 @@ class Product():
             self.resolution=input("Enter the resolution:")
             self.screen=input("Enter the screen size:")
             return dict([("ID",self.id),("Name",self.name),("Product_details",dict([("isSmart",self.isSmart),("Resolution",self.resolution),("Screensize",self.screen)])),("Cost",self.cost),("Currency",self.currency),("Category","TV"),("Color",self.color)])
-
 
 class Display:
     def display(self,products):
@@ -69,13 +68,33 @@ class Admin(Product,Display):
             if count==0:
                 print("ID doesn't exist\n")
 
-
 class CartFunction:
     def cart(self,customer_list):
+        cart={}
+        tcost=0
         print("------------\nCart Details\n------------")
         for i in customer_list:
-            print(customer_list.count(i))
-            
+            cart[i['ID']]=customer_list.count(i)
+        customer_list = [k for j, k in enumerate(customer_list) if k not in customer_list[j + 1:]]
+        print("ID NAME QTY COST\n")
+        for i in customer_list:
+            print("{} {} {} {}".format(i['ID'],i['Name'],cart[i['ID']],(i['Cost']*cart[i['ID']])))
+            tcost+=(i['Cost']*cart[i['ID']])
+        print(f"Total Cost: {tcost}")
+        return customer_list
+
+    def payment(self):
+        print("Choose payment method:")
+        pay=int(input("1. Credit/Debit Card\n2. Net Banking\n3. Gpay\n4. PhonePay\n5. Paytm\n6. COD\n"))
+        if(pay==1):
+            print("Credit/Debit card")
+            cardNo=int(input("ENter the card Number:"))
+            cvv=int(input("Enter the CVV:"))
+        elif pay==6:
+            print("Order placed")
+            return 1
+        else:
+            print("Please enter a correct option")
 
 class User(Display,CartFunction):
     def __init__(self):
@@ -93,17 +112,21 @@ class User(Display,CartFunction):
             while(True):
                     action=int(input("1. Add product\n2. Delete Product\n"))
                     if action==1:
-                        customer_list=self.add_product()
+                        self.customer_list=self.add_product()
                         nav = int(input("1.Go to cart page\n2.Explore\n"))
                         if(nav==1):
-                            super().cart(customer_list)
-                            print(customer_list)
+                            self.customer_list=super().cart(self.customer_list)
+                            value=int(input("Choose option:\n1.Pay\n2.Explore\n"))
+                            if(value==1):
+                               payment()
+                            elif (value==2):
+                                self.explore()
                         else:
                             break
                     elif action==2:
-                        # if (delete(customer_list)):
-                        #     break
-                        pass
+                        if (self.delete()==0):
+                            break
+                        
     def add_product(self):
         while(True):
             pdtId=int(input("Enter the ID of the product you want to add:\n"))
@@ -113,6 +136,21 @@ class User(Display,CartFunction):
                     print("Product added to the cart!")
                     return self.customer_list
             print("ID doesn't exist")
+
+    def delete(self):
+        if(len(self.customer_list)==0):
+            print("Cart is empty!")
+            return 0
+        else:
+            dele=int(input("Enter the ID of the product you want to delete:\n"))
+            for i in self.customer_list:
+                    if i['ID']==dele:
+                        self.customer_list.remove(i)
+                        print("product removed!\n")
+                        count=1
+                        return 1
+            print("ID doesn't exist")
+            return 0
 
 class Main():
     def home(self):
